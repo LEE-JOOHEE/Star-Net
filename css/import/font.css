@@ -1,0 +1,142 @@
+/* ======================================================== */
+/* font : MinSans */
+/* ======================================================== */
+@font-face {
+  font-family: "MinSans-100";
+  src: url("/css/fonts/MinSans-Thin.otf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "MinSans-200";
+  src: url("/css/fonts/MinSans-ExtraLight.otf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "MinSans-300";
+  src: url("/css/fonts/MinSans-Light.otf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "MinSans-400";
+  src: url("/css/fonts/MinSans-Regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "MinSans-500";
+  src: url("/css/fonts/MinSans-Medium.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "MinSans-600";
+  src: url("/css/fonts/MinSans-SemiBold.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "MinSans-700";
+  src: url("/css/fonts/MinSans-Bold.otf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "MinSans-800";
+  src: url("/css/fonts/MinSans-ExtraBold.otf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "MinSans-900";
+  src: url("/css/fonts/MinSans-Black.otf");
+  font-weight: 900;
+}
+
+/* ======================================================== */
+/* font defualt(400) */
+/* ======================================================== */
+* {font-family: "MinSans-400"; font-size: 16px;}
+
+/* ======================================================== */
+/* font-weight */
+/* ======================================================== */
+.font-bold-100 {
+  font-family: "MinSans-100" !important;
+}
+.font-bold-200 {
+  font-family: "MinSans-200" !important;
+}
+.font-bold-300 {
+  font-family: "MinSans-300" !important;
+}
+.font-bold-400 {
+  font-family: "MinSans-400" !important;
+}
+.font-bold-500 {
+  font-family: "MinSans-500" !important;
+}
+.font-bold-600 {
+  font-family: "MinSans-600" !important;
+}
+.font-bold-700 {
+  font-family: "MinSans-700" !important;
+}
+.font-bold-800 {
+  font-family: "MinSans-800" !important;
+}
+.font-bold-900 {
+  font-family: "MinSans-900" !important;
+}
+
+/* ======================================================== */
+/* Heading(title) font */
+/* ======================================================== */
+h1, .h1 {
+  font-family: "MinSans-400";
+  font-size: 48px;
+  line-height: 56px;
+}
+h2, .h2 {
+  font-family: "MinSans-400";
+  font-size: 24px;
+  line-height: 32px;
+}
+h3, .h3 {
+  font-family: "MinSans-400";
+  font-size: 20px;
+  line-height: 28px;
+}
+h4, .h4 {
+  font-family: "MinSans-400";
+  font-size: 18px;
+  line-height: 26px;
+}
+h5, .h5 {
+  font-family: "MinSans-400";
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* ======================================================== */
+/* Paragraph set */
+/* ======================================================== */
+
+
+/* ======================================================== */
+/* underline */
+.underline {
+  text-decoration: underline !important;
+  text-underline-position: under !important;
+}
+
+/* line-height */
+.line-height-none {
+  line-height: unset !important;
+}
+
+/* selection color(drag) */
+::selection {
+  background-color: #e6f0f8;
+}
+/* ======================================================== */
+
+/* font-size */
+.font-12{font-size: 0.8rem !important;}
+.font-14{font-size: 0.9rem !important;}
+.font-16{font-size: 1rem !important;}
+.font-18{font-size: 1.1rem !important;}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star-Net</title>
+  <link href="/css/common.css" rel="stylesheet">
+  <style>
+    .doc-header{color: #f9fafb;
+      background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);}
+    .doc-header-title a{display: flex;flex-wrap: wrap;column-gap: 24px;align-items: baseline;
+      font-family: "MinSans-700";font-size: 72px;line-height: 80px;}
+    .doc-header-title span{font-family: "MinSans-300";font-size: 56px;}
+    .doc-header sub{margin-top: 10px;font-size: 1.25rem;font-family: "MinSans-400";line-height: 1.5;}
+    
+    body{width: 100%; height: 100%;}
+    aside{position: fixed;top:0;bottom:0;left:0;right:0;width: 230px;z-index: 1;background: #fff;
+      margin:10px; border-radius: 8px;overflow: auto;
+      box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(136, 165, 191, 0.48) 1px 1px 8px;}
+    section{position: relative; width: 100%; height: 100%;background: transparent;overflow: hidden;}
+    label {display: inline-block;padding: 7px 10px;background-color: transparent;cursor: pointer;
+      margin: 20px 20px 10px 10px;z-index: 3;position: fixed;right: 0;}
+    .bar {display: block;background-color: #fff;width: 28px;height: 3px;border-radius: 5px;margin: 5px auto;
+      transition: background-color .2s ease-in, transform .3s ease-in, width .2s ease-in;}
+    .content{top:0;bottom:0;left:0;right:0; position: absolute;background: #fff;z-index: 2;
+      transition: transform .5s ease-in-out;}
+    .asideList {list-style: none;padding: 0;margin: 0;}
+    .asideList li.category{background: #094166;color:#fff;padding: 8px 16px;font-family: "MinSans-400";font-size: 1rem;}
+    .asideList li:nth-child(1){margin: 50px 0 30px 16px; font-family: "MinSans-500"; font-size: 1.25rem;}
+    .asideList li a{padding: 8px 16px; font-size: 0.875rem; color: #777;}
+    .asideList li p{font-size: 0.75rem; line-height: 1.2; margin-right: 16px;margin-top: 4px;font-family: "MinSans-300"}
+    .asideSubMenu {border-bottom: 1px solid rgba(0, 77, 122, 0.2);display: block;color: #000;
+      text-transform: uppercase;text-decoration: none;font-family: "MinSans-400";font-size: 1rem;
+      position: relative;transition: color .3s .15s ease-in;}
+    .asideSubMenu::after {content: "";position: absolute;left: 0;bottom: 0;height: 100%;
+      background: #F9FAFB;width: 0;transition: width .3s ease-in;z-index: -1;}
+    .asideSubMenu:hover {color: #005691;}
+    .asideSubMenu:hover::after {width: 100%;}
+    input[type="checkbox"] {display: none;}
+    input[type="checkbox"]:checked ~ .content {transform: translateX(250px);}
+    input[type="checkbox"]:checked ~ label .bar {background-color: #fff;}
+    input[type="checkbox"]:checked ~ label .top {
+      -webkit-transform: translateY(8px) rotateZ(45deg);
+      -moz-transform: translateY(8px) rotateZ(45deg);
+      -ms-transform: translateY(8px) rotateZ(45deg);
+      -o-transform: translateY(8px) rotateZ(45deg);
+      transform: translateY(8px) rotateZ(45deg);}
+    input[type="checkbox"]:checked ~ label .bottom {
+      -webkit-transform: translateY(-8px) rotateZ(-45deg);
+      -moz-transform: translateY(-8px) rotateZ(-45deg);
+      -ms-transform: translateY(-8px) rotateZ(-45deg);
+      -o-transform: translateY(-8px) rotateZ(-45deg);
+      transform: translateY(-8px) rotateZ(-45deg);}
+    input[type="checkbox"]:checked ~ label .middle {width: 0;}
+
+    .doc-container{font-size: 1.3rem; padding: 40px;}
+  </style>
+</head>
+<body>
+  <!-- https://alvarotrigo.com/blog/slide-menus/  --- (11번 demo) -->
+  <!-- 사이드메뉴 -->
+  <aside>
+    <ul class="asideList">
+      <li>Design System<p>It creates a unified language within and between crossfunctional teams.</p></li>
+      <li class="category">Foundation</li>
+      <!-- <li><a href="/just-test/animation.html" class="asideSubMenu">애니매이션 샘플</a></li> -->
+      <!-- <li><a href="/just-test/auto-search.html" class="asideSubMenu">자동완성 샘플</a></li> -->
+      <li><a href="#" class="asideSubMenu">Frame</a></li>
+      <li><a href="#" class="asideSubMenu">Color</a></li>
+      <li><a href="#" class="asideSubMenu">Typo</a></li>
+      <li><a href="#" class="asideSubMenu">Icon</a></li>
+      <li class="category">Elements</li>
+      <li><a href="#" class="asideSubMenu">Button</a></li>
+      <li><a href="#" class="asideSubMenu">Form</a></li>
+      <li><a href="#" class="asideSubMenu">Controler</a></li>
+      <li><a href="#" class="asideSubMenu">Text</a></li>
+      <li class="category">Components</li>
+      <li><a href="#" class="asideSubMenu">Group</a></li>
+      <li><a href="#" class="asideSubMenu">Table</a></li>
+      <li class="category">Version</li>
+      <li><a href="#" class="asideSubMenu">Version</a></li>
+      <li class="category">Sample</li>
+      <li><a href="/one-pages.html/termsOfService.html" class="asideSubMenu">서비스 이용약관</a></li>
+      <li><a href="/one-pages.html/privacyPolicy.html" class="asideSubMenu">개인정보처리방침</a></li>
+    </ul>
+  </aside>
+
+  <section>
+    <!-- 메뉴 아이콘 -->
+    <input type="checkbox" id="menuIcon">
+    <label for="menuIcon">
+      <span class="bar top"></span>
+      <span class="bar middle"></span>
+      <span class="bar bottom"></span>
+    </label>
+
+    <!-- 컨텐츠 body container -->
+    <div class="content">
+
+      <!-- Document Header -->
+      <div class="doc-header grid-col-1 p-40">
+        <div class="doc-header-title">
+          <a href="/index.html">STAR-NET <span>UX / UI</span></a>
+        </div>
+        <sub>다차원네트워크 분석 기법을 활용한 도서 검색 데모 사이트 구축</sub>
+      </div>
+
+      <div class="doc-container">
+        <h1>Star-Net 화면 설계 v1.0</h1>
+        <h2 class="mt-40 mb-8">퍼블리싱 화면 링크</h2>
+
+        <br/>
+        <ul style="width: fit-content;">
+          <li class="p-16 ptb-8" style="display: flex; gap: 4px;">
+            <a href="/one-pages.html/termsOfService.html" class="asideSubMenu">1. 서비스 이용약관 </a>
+            - <span>(termsOfService.html)</span>
+          </li>
+          <li class="p-16 ptb-8" style="display: flex; gap: 4px;">
+            <a href="/one-pages.html/privacyPolicy.html" class="asideSubMenu">2. 개인정보처리방침 </a>
+            - <span>(privacyPolicy.html)</span>
+          </li>
+        </ul>
+        
+
+
+      </div>
+    </div>
+  </section>
+
+  
+
+</body>
+</html>

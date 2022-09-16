@@ -1,0 +1,119 @@
+@import url('/css/import/reset.css');
+@import url('/css/import/font.css');
+@import url('/css/import/color.css');
+@import url('/css/import/grid.css');
+
+/* common */
+body{min-width: 780px;}
+
+
+
+
+
+/* 서비스 이용약관 */
+.terms-wrap{
+  width: 80%;
+  margin: 0 auto;
+}
+.terms-frame{
+  border-top: 5px solid #6a8a9a;
+  margin-top: 50px;
+  display: flex;
+}
+.terms-frame .text-l, .terms-frame .text-r{
+  color: #6a8a9a;
+  font-family: "MinSans-300";
+  font-size: 0.875rem;
+  padding: 4px 0;
+}
+.terms-frame .text-r{margin-left: auto;}
+.terms-cont{padding-bottom: 100px;}
+.terms-cont .great-title{
+  font-family: "MinSans-700";
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 40px 0;
+}
+.terms-cont .chapter{
+  color: #094166;
+  font-family: "MinSans-500";
+  font-size: 1.25rem;
+}
+.terms-cont .article{
+  color: #6a8a9a;
+  font-family: "MinSans-500";
+  font-size: 0.875rem;
+  margin: 16px 0 10px 16px;
+}
+.terms-cont .text, 
+.terms-cont .text ul,
+.terms-cont .text ul li,
+.terms-cont .text ul li > ul li{
+  font-family: "MinSans-400";
+}
+.terms-cont .text{
+  color: #094166;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 20px 30px 20px;
+  padding: 16px 24px;
+  word-break: keep-all;
+}
+.terms-cont .round{
+  border: 1px solid #d0dfe6;
+  border-radius: 16px;
+}
+.terms-cont .line{
+  border-top: 4px solid #d0dfe6;
+  border-bottom: 4px solid #d0dfe6;
+}
+.terms-cont .text ul{
+  margin-left: 20px;
+  text-indent: -20px;
+}
+.terms-cont .text ul li{
+  margin-left: 20px;
+  text-indent: -18px;
+}
+.terms-cont .text ul li > ul li{
+  color: #286188;
+  margin-left: 3px;
+  text-indent: -22px;
+}
+.terms-cont table{
+  border: 1px solid #d0dfe6;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.terms-cont th, .terms-cont thead{
+  font-family: "MinSans-500";
+  font-size: 0.9rem;
+  text-align: center;
+  color: #094166;
+  background: #d0dfe6;
+  border-bottom: 1px solid #bccad4;
+}
+.terms-cont td, .terms-cont th{
+  padding: 1em 2.5em;
+  vertical-align: middle;
+}
+.terms-cont td{
+  font-family: "MinSans-300";
+  border-bottom: 1px solid #d0dfe6;
+  border-right: 1px solid #d0dfe6;
+  background: #fff;
+}
+.terms-cont .text table ul{
+  font-family: "MinSans-300";
+  margin-left: 14px;
+  text-indent: -11px;
+}
+.terms-cont .text table caption{
+  font-family: "MinSans-200";
+  caption-side: bottom;
+  text-align: left;
+  margin: 10px 0 16px 0;
+}

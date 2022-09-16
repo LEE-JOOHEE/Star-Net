@@ -1,0 +1,17 @@
+/* reset.css */
+*{margin:0;padding:0;font:inherit;color:inherit;text-transform: none;}
+*, :after, :before {box-sizing:border-box;flex-shrink:0;}
+:root {-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%;cursor:default;line-height:1.5;overflow-wrap:break-word;word-break:break-word;tab-size:4}
+html, body {height:100%;}
+img, picture, video, canvas, svg {display: block;max-width:100%;}
+button {background:none;border:0;cursor:pointer;}
+a {text-decoration:none}
+table {border-collapse:collapse;border-spacing:0}
+ul, ol, li {list-style: none;}
+
+/* Scroll */
+::-webkit-scrollbar{width: 8px; height: 8px;}
+::-webkit-scrollbar-track{background-color: #f3f3f3; border-radius: 8px;}
+::-webkit-scrollbar-thumb{background-color: #dbdbdf; border-radius: 8px;}
+html, div, .table-wrap, .overflow-auto{scrollbar-color: #dbdbdf #f3f3f3; scrollbar-width: thin;}
+
