@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공통 헤더(Header)</title>
+  <link href="/css/common.css" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="header">
+    <div class="logo"><a href="#">Star-Net</a></div>
+    <div class="nav">
+      <a href="javascript:void(0);" title="About">About</a> 
+      <a href="javascript:void(0);" title="We">We</a> 
+      <a href="javascript:void(0);" title="Partner">Partner</a>
+
+      <div class="account">
+        <div class="photo">
+          <label>
+            <input id="upload" type="file" onChange="handleImageUpload()" />
+            <img id="display-image" src="/images/user-none.png" />
+          </label>  
+        </div>
+        <div class="user">
+          <a href="javascript:void(0);" onclick="popoverToggle();">Min-hyeon
+            <span class="arrow"></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <main style="background: #6a8a9a; height: 100vh;">
+    
+  </main>
+  
+
+
+</body>
+<script>
+function handleImageUpload() {
+var image = document.getElementById("upload").files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("display-image").src = e.target.result;
+    }
+    reader.readAsDataURL(image);
+} 
+</script>
+</html>
