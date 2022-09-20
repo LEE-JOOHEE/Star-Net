@@ -86,36 +86,60 @@
 /* ======================================================== */
 /* Heading(title) font */
 /* ======================================================== */
-h1, .h1 {
-  font-family: "MinSans-400";
-  font-size: 48px;
-  line-height: 56px;
+h1, .h1 {/*40px*/
+  font-family: "MinSans-500" !important;
+  font-size: 2.5rem;
 }
-h2, .h2 {
-  font-family: "MinSans-400";
-  font-size: 24px;
-  line-height: 32px;
+h2, .h2 {/*24px*/
+  font-family: "MinSans-500" !important;
+  font-size: 1.5rem;
 }
-h3, .h3 {
-  font-family: "MinSans-400";
-  font-size: 20px;
-  line-height: 28px;
+h3, .h3 {/*20px*/
+  font-family: "MinSans-500" !important;
+  font-size: 1.25rem;
 }
-h4, .h4 {
-  font-family: "MinSans-400";
-  font-size: 18px;
-  line-height: 26px;
+h4, .h4 {/*18px*/
+  font-family: "MinSans-500" !important;
+  font-size: 1.125rem;
 }
-h5, .h5 {
-  font-family: "MinSans-400";
-  font-size: 16px;
-  line-height: 24px;
+h5, .h5 {/*16px*/
+  font-family: "MinSans-500" !important;
+  font-size: 1rem;
 }
 
 /* ======================================================== */
 /* Paragraph set */
 /* ======================================================== */
-
+.text-18-r{
+  font-family: "MinSans-400" !important;
+  font-size: 1.125rem !important;
+  line-height: 1.5 !important;
+}
+.text-18-m{
+  font-family: "MinSans-500" !important;
+  font-size: 1.125rem !important;
+  line-height: 1.5 !important;
+}
+.text-16-r{
+  font-family: "MinSans-400" !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+.text-16-m{
+  font-family: "MinSans-500" !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+.text-14-r{
+  font-family: "MinSans-400" !important;
+  font-size: 0.875rem !important;
+  line-height: 1.375 !important;
+}
+.text-14-m{
+  font-family: "MinSans-500" !important;
+  font-size: 0.875rem !important;
+  line-height: 1.375 !important;
+}
 
 /* ======================================================== */
 /* underline */

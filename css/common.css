@@ -2,13 +2,98 @@
 @import url('/css/import/font.css');
 @import url('/css/import/color.css');
 @import url('/css/import/grid.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 /* common */
 body{min-width: 780px;}
 
-
-
-
+/* login */
+.login-body{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 16px;
+  min-height: 100vh;
+  align-items: center;
+}
+.login-wrap{
+  grid-column: 2 / 2;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 16px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.08), 0px 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+}
+.login{
+  grid-column: 2 / 6;
+  text-align: center;
+}
+.login .title{
+  font-family: "MinSans-600";
+  font-size: 2.25rem;
+  line-height: 1;
+  color: #094166;
+  margin: 48px 0;
+}
+/* social-login */
+.social-logins {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+}
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.social-login > img{object-fit: contain;}
+.social-login.google{
+  border: 1px solid #E5E7EB;
+  background: #fff;
+}
+.social-login p.google{
+  font-family: "Roboto";
+  font-weight: 500;
+}
+.social-login:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04), 0px 4px 6px rgba(0, 0, 0, 0.08);
+}
+.social-login > p {
+  margin-left: 8px;
+  font-family: "MinSans-300";
+  font-size: 1rem;
+  line-height: 1;
+  color: #111827;
+}
+.social-login.naver{background: #03C75A !important;}
+.social-login p.naver{color: #fff !important;}
+.social-login.kakao{background: #FEE500 !important;}
+.social-login p.kakao{color: #371C1D !important;}
+/* login 반응형 */
+/* XL */
+@media all and (min-width: 1025px) and (max-width: 1440px) {
+  .login-body{grid-template-columns: repeat(4, 1fr);}
+  .login-wrap{grid-column: 2 / 4;}
+}
+/* L */
+@media all and (min-width: 769px) and (max-width: 1024px) {
+  .login-body{grid-template-columns: repeat(6, 1fr);}
+  .login-wrap{grid-column: 2 / 6;}
+}
+/* M */
+@media (max-width: 768px) {
+  .login-body{grid-template-columns: repeat(8, 1fr);}
+  .login-wrap{grid-column: 2 / 8;}
+}
 
 /* 서비스 이용약관 */
 .terms-wrap{
@@ -117,3 +202,15 @@ body{min-width: 780px;}
   text-align: left;
   margin: 10px 0 16px 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -55,6 +55,10 @@
     input[type="checkbox"]:checked ~ label .middle {width: 0;}
 
     .doc-container{font-size: 1.3rem; padding: 40px;}
+    .doc-list ul{color: #636871; margin: 16px 0;}
+    .doc-list ul li{color: #111827; padding: 4px 32px;}
+    .doc-list ul li span{color: #9CA3AF; text-decoration: underline;}
+    .doc-list ul li a:hover{color: #4cb1f6;cursor: pointer;}
   </style>
 </head>
 <body>
@@ -108,19 +112,29 @@
 
       <div class="doc-container">
         <h1>Star-Net 화면 설계 v1.0</h1>
-        <h2 class="mt-40 mb-8">퍼블리싱 화면 링크</h2>
+        <h2 class="mt-16 mb-24">퍼블리싱 화면 링크</h2>
 
-        <br/>
-        <ul style="width: fit-content;">
-          <li class="p-16 ptb-8" style="display: flex; gap: 4px;">
-            <a href="/one-pages.html/termsOfService.html" class="asideSubMenu">1. 서비스 이용약관 </a>
-            - <span>(termsOfService.html)</span>
-          </li>
-          <li class="p-16 ptb-8" style="display: flex; gap: 4px;">
-            <a href="/one-pages.html/privacyPolicy.html" class="asideSubMenu">2. 개인정보처리방침 </a>
-            - <span>(privacyPolicy.html)</span>
-          </li>
-        </ul>
+        <div class="doc-list">
+          <ul>소셜 로그인
+            <li>
+              <a href="/html_pages/login.html">1.0.0 - 로그인</a> - <span>login.html</span>
+            </li>
+          </ul>
+          <ul>메인 페이지
+            <li>
+              <a href="login.html">2.0.0 - 메인화면</a> - <span>termsOfService.html</span>
+            </li>
+          </ul>
+          <ul>단독 페이지
+            <li>
+              <a href="/one-pages.html/termsOfService.html">9.1.0 - 서비스 이용약관</a> - <span>termsOfService.html</span>
+            </li>
+            <li>
+              <a href="/one-pages.html/privacyPolicy.html">9.2.0 - 개인정보처리방침</a> - <span>privacyPolicy.html</span>
+            </li>
+          </ul>
+          
+        </div>
         
 
 
