@@ -24,14 +24,46 @@
           </label>  
         </div>
         <div class="user">
-          <a href="javascript:void(0);" onclick="popoverToggle();">Min-hyeon
+          <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
+            Min-hyeon
             <span class="arrow"></span>
           </a>
         </div>
       </div>
 
+      <!-- popover -->
+      <div class="popover-user no-show" id="popover">
+        <div class="pop-list">
+          <div class="user">
+            <img id="display-image2" src="/images/user-none.png" />
+            <div class="user-info">
+              <span class="name">Min-hyeon Kang</span>
+              <span class="email">Kangminhyeon@gamil.com</span>
+            </div>
+          </div>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-1.svg" />
+            <span>Primium until Sep 01 2023</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-bookmark.svg" />
+            <span>Savd papers(20)</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-history.svg" />
+            <span>Graph history</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-feedback.svg" />
+            <span>Feedback</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-logout.svg" />
+            <span>Log out</span>
+          </a>
+        </div>
+      </div>  
     </div>
-
   </div>
   <main style="background: #6a8a9a; height: 100vh;">
     
@@ -41,13 +73,24 @@
 
 </body>
 <script>
+/* user - image */
 function handleImageUpload() {
-var image = document.getElementById("upload").files[0];
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById("display-image").src = e.target.result;
-    }
-    reader.readAsDataURL(image);
-} 
+  var image = document.getElementById("upload").files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById("display-image").src = e.target.result;
+    document.getElementById("display-image2").src = e.target.result;
+  }
+  reader.readAsDataURL(image);
+}
+/* user - popover */
+function popoverToggle() {
+  var popover = document.getElementById("popover");
+  popover.classList.toggle("show");
+  var userPop = document.getElementById("user-pop");
+  userPop.classList.toggle("active");
+  console.log(userPop);
+}
+
 </script>
 </html>

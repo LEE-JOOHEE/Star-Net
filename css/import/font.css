@@ -89,22 +89,27 @@
 h1, .h1 {/*40px*/
   font-family: "MinSans-500" !important;
   font-size: 2.5rem;
+  line-height: 150%;
 }
 h2, .h2 {/*24px*/
   font-family: "MinSans-500" !important;
   font-size: 1.5rem;
+  line-height: 150%;
 }
 h3, .h3 {/*20px*/
   font-family: "MinSans-500" !important;
   font-size: 1.25rem;
+  line-height: 150%;
 }
 h4, .h4 {/*18px*/
   font-family: "MinSans-500" !important;
   font-size: 1.125rem;
+  line-height: 150%;
 }
 h5, .h5 {/*16px*/
   font-family: "MinSans-500" !important;
   font-size: 1rem;
+  line-height: 150%;
 }
 
 /* ======================================================== */
@@ -133,12 +138,12 @@ h5, .h5 {/*16px*/
 .text-14-r{
   font-family: "MinSans-400" !important;
   font-size: 0.875rem !important;
-  line-height: 1.375 !important;
+  line-height: 1.5 !important;
 }
 .text-14-m{
   font-family: "MinSans-500" !important;
   font-size: 0.875rem !important;
-  line-height: 1.375 !important;
+  line-height: 1.5 !important;
 }
 
 /* ======================================================== */

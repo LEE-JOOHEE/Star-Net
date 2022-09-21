@@ -24,7 +24,7 @@
     .bar {display: block;background-color: #fff;width: 28px;height: 3px;border-radius: 5px;margin: 5px auto;
       transition: background-color .2s ease-in, transform .3s ease-in, width .2s ease-in;}
     .content{top:0;bottom:0;left:0;right:0; position: absolute;background: #fff;z-index: 2;
-      transition: transform .5s ease-in-out;}
+      transition: transform .5s ease-in-out; overflow: auto;}
     .asideList {list-style: none;padding: 0;margin: 0;}
     .asideList li.category{background: #094166;color:#fff;padding: 8px 16px;font-family: "MinSans-400";font-size: 1rem;}
     .asideList li:nth-child(1){margin: 50px 0 30px 16px; font-family: "MinSans-500"; font-size: 1.25rem;}
@@ -54,7 +54,7 @@
       transform: translateY(-8px) rotateZ(-45deg);}
     input[type="checkbox"]:checked ~ label .middle {width: 0;}
 
-    .doc-container{font-size: 1.3rem; padding: 40px;}
+    .doc-container{font-size: 1.3rem; padding: 40px; padding-bottom: 300px;}
     .doc-list ul{color: #636871; margin: 16px 0;}
     .doc-list ul li{color: #111827; padding: 4px 32px;}
     .doc-list ul li span{color: #9CA3AF; text-decoration: underline;}
@@ -120,12 +120,17 @@
               <a href="/html_pages/login.html">1.0.0 - 로그인</a> - <span>login.html</span>
             </li>
           </ul>
+          <ul>공통
+            <li>
+              <a href="/html_pages/header.html">1.1.0 - Header</a> - <span>header.html</span>
+            </li>
+            <li>
+              <a href="/html_pages/footer.html">1.2.0 - Footer</a> - <span>footer.html</span>
+            </li>
+          </ul>
           <ul>메인 페이지
             <li>
               <a href="login.html">2.0.0 - 메인화면</a> - <span>termsOfService.html</span>
-            </li>
-            <li>
-              <a href="/html_pages/header.html">2.0.1 - 헤더</a> - <span>header.html</span>
             </li>
           </ul>
           <ul>단독 페이지
