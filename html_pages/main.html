@@ -4,9 +4,174 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>메인화면</title>
+  <link href="/css/common.css" rel="stylesheet">
 </head>
 <body>
+
+  <div class="header">
+    <div class="logo"><a href="#">Star-Net</a></div>
+    <div class="nav">
+      <a href="javascript:void(0);" title="About">About</a> 
+      <a href="javascript:void(0);" title="We">We</a> 
+      <a href="javascript:void(0);" title="Partner">Partner</a>
+
+      <div class="account">
+        <div class="photo">
+          <label>
+            <input id="upload" type="file" onChange="handleImageUpload()" />
+            <img id="display-image" src="/images/user-none.png" />
+          </label>  
+        </div>
+        <div class="user">
+          <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
+            Min-hyeon
+            <span class="arrow"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- popover -->
+      <div class="popover-user no-show" id="popover">
+        <div class="pop-list">
+          <div class="user">
+            <img id="display-image2" src="/images/user-none.png" />
+            <div class="user-info">
+              <span class="name">Min-hyeon Kang</span>
+              <span class="email">Kangminhyeon@gamil.com</span>
+            </div>
+          </div>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-1.svg" />
+            <span>Primium until Sep 01 2023</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-bookmark.svg" />
+            <span>Savd papers(20)</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-history.svg" />
+            <span>Graph history</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-feedback.svg" />
+            <span>Feedback</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-logout.svg" />
+            <span>Log out</span>
+          </a>
+        </div>
+      </div>  
+    </div>
+  </div>
   
+  <main>
+    <!-- main 검색 -->
+    <div class="main-top">
+      <h1>네트워크 캔버스에서 도서를 검색해 보세요</h1>
+      <p class="text-18-r text-gray-600 mt-16">
+        네트워크 캔버스에서 도서를 검색해 보세요, 책의 제목, 저자 등
+      </p>
+
+      <form autosearch="off" action="/html_pages/main.html">
+        <div class="search-form">
+          <div class="input-wrap">
+            <input type="text" id="myInput" class="input-search" name="myBook" autocomplete='off'
+              placeholder="책의 제목, 내용, 저자, 요약문장을 입력하세요." />
+          </div>
+          <button type="submit" onclick="alert('전송합니까?');">
+            <img src="/images/icons/icon-search.svg" alt="search-icon">
+            그래프로 책 찾기
+          </button>
+        </div>
+      </form>
+    </div>  <!-- main 검색 end -->
+
+    <div class="main-cont">
+
+    </div>
+    <div class="main-end">
+
+    </div>
+
+  </main>
+
 </body>
+<script src="../new충청남도 천안시_전자책정보_20220531.json"></script>
+<script>
+  //도서검색 자동완성 예시
+  let myBook = JSON.parse(JSON.stringify(Data));
+
+  function autosearch(inp, arr){
+    var currentFocus;
+    inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autosearch-list");
+      a.setAttribute("class", "autosearch-items");
+      this.parentNode.appendChild(a);
+      for (i = 0; i < arr.length; i++) {
+        if(arr[i].도서분철.substr(0, val.length).toUpperCase() === val.toUpperCase()){
+          b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + arr[i].도서분철.substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].도서분철.substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + arr[i].도서분철 + "'>";
+          b.addEventListener("click", function(e){
+            inp.value = this.getElementsByTagName("input")[0].value;
+            closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+    });
+    // 키보드 기능
+    inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autosearch-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        currentFocus++;
+        console.log(currentFocus);
+        addActive(x);
+      } else if(e.keyCode == 38){
+        currentFocus--;
+        addActive(x);
+      } else if(e.keyCode == 13){
+        e.preventDefault();
+        if (currentFocus > -1) {
+          if (x) x[currentFocus].click();
+        }
+      }
+    });
+    
+    function addActive(x) {
+      if (!x) return false;
+      removeActive(x);
+      if (currentFocus >= x.length) currentFocus = 0;
+      if (currentFocus < 0) currentFocus = (x.length - 1);
+      x[currentFocus].classList.add("autosearch-active");
+    }
+    function removeActive(x) {
+      for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autosearch-active");
+      }
+    }
+    function closeAllLists(elmnt) {
+      var x = document.getElementsByClassName("autosearch-items");
+      for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != inp) {
+          x[i].parentNode.removeChild(x[i]);
+        }
+      }
+    }
+    document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+    });
+    console.log(e);
+  }
+  autosearch(document.getElementById("myInput"), myBook);
+</script>
 </html>

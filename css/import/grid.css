@@ -418,3 +418,90 @@
 .mlr-56 {margin-left: 56px !important; margin-right: 56px !important;}
 .mlr-60 {margin-left: 60px !important; margin-right: 60px !important;}
 .mlr-64 {margin-left: 64px !important; margin-right: 64px !important;}
+
+/* flex */
+.flex-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+}
+.flex-row-cont {
+  display: inline-flex !important;
+  flex-direction: row !important;
+}
+.flex-row-reverse {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+}
+.flex-row-nowrap{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+}
+.flex-col {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.flex-col-cont {
+  display: inline-flex !important;
+  flex-direction: column !important;
+}
+.flex-col-reverse {
+  display: flex !important;
+  flex-direction: column-reverse !important;
+}
+
+/* flex row 비율 (부모가 flex일때 자식요소에 사용)
+    -> (ex) flex-row 1:2:1 비율) */
+.flex-1 {
+  flex: 1 1 0%;
+}
+.flex-2 {
+  flex: 2 1 0%;
+}
+.flex-3 {
+  flex: 3 1 0%;
+}
+
+/* flex 정렬 - 수직(Align Items) */
+.items-start {
+  align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+.items-baseline {
+  align-items: baseline;
+}
+.items-stretch {
+  align-items: stretch;
+}
+/* flex-row 정렬 - 간격(Justify Content) */
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+/* flex-center 정중앙 */
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
