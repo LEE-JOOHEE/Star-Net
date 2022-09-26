@@ -67,68 +67,69 @@
     </div>
   </div>
   <main style="background: #6a8a9a; height: 200px; padding-top: 70px; margin-bottom: 150px;">
-    <h1 style="text-align: center;">컨텐츠</h1>
+    <h1 style="text-align: center;">컨텐츠 (Full-Header)</h1>
   </main>
 
   <!-- fixed Header -->
-  <div class="header fixed">
-    <div class="logo"><a href="#">Star-Net</a></div>
-    <div class="nav">
-      <a href="javascript:void(0);" title="About">About</a> 
-      <a href="javascript:void(0);" title="We">We</a> 
-      <a href="javascript:void(0);" title="Partner">Partner</a>
+  <main style="background: #6a8a9a; height: 300px;">
+    <div class="header">
+      <div class="logo"><a href="#">Star-Net</a></div>
+      <div class="nav">
+        <a href="javascript:void(0);" title="About">About</a> 
+        <a href="javascript:void(0);" title="We">We</a> 
+        <a href="javascript:void(0);" title="Partner">Partner</a>
 
-      <div class="account">
-        <div class="photo">
-          <label>
-            <input id="upload" type="file" onChange="handleImageUpload()" />
-            <img id="display-image" src="/images/user-none.png" />
-          </label>  
-        </div>
-        <div class="user">
-          <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
-            Min-hyeon
-            <span class="arrow"></span>
-          </a>
-        </div>
-      </div>
-
-      <!-- popover -->
-      <div class="popover-user no-show" id="popover">
-        <div class="pop-list">
-          <div class="user">
-            <img id="display-image2" src="/images/user-none.png" />
-            <div class="user-info">
-              <span class="name">Min-hyeon Kang</span>
-              <span class="email">Kangminhyeon@gamil.com</span>
-            </div>
+        <div class="account">
+          <div class="photo">
+            <label>
+              <input id="upload" type="file" onChange="handleImageUpload()" />
+              <img id="display-image" src="/images/user-none.png" />
+            </label>  
           </div>
-          <a href="javascript:void(0);">
-            <img class="icon" src="/images/icons/icon-1.svg" />
-            <span>Primium until Sep 01 2023</span>
-          </a>
-          <a href="javascript:void(0);">
-            <img class="icon" src="/images/icons/icon-bookmark.svg" />
-            <span>Savd papers(20)</span>
-          </a>
-          <a href="javascript:void(0);">
-            <img class="icon" src="/images/icons/icon-history.svg" />
-            <span>Graph history</span>
-          </a>
-          <a href="javascript:void(0);">
-            <img class="icon" src="/images/icons/icon-feedback.svg" />
-            <span>Feedback</span>
-          </a>
-          <a href="javascript:void(0);">
-            <img class="icon" src="/images/icons/icon-logout.svg" />
-            <span>Log out</span>
-          </a>
+          <div class="user">
+            <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
+              Min-hyeon
+              <span class="arrow"></span>
+            </a>
+          </div>
         </div>
-      </div>  
+
+        <!-- popover -->
+        <div class="popover-user no-show" id="popover">
+          <div class="pop-list">
+            <div class="user">
+              <img id="display-image2" src="/images/user-none.png" />
+              <div class="user-info">
+                <span class="name">Min-hyeon Kang</span>
+                <span class="email">Kangminhyeon@gamil.com</span>
+              </div>
+            </div>
+            <a href="javascript:void(0);">
+              <img class="icon" src="/images/icons/icon-1.svg" />
+              <span>Primium until Sep 01 2023</span>
+            </a>
+            <a href="javascript:void(0);">
+              <img class="icon" src="/images/icons/icon-bookmark.svg" />
+              <span>Savd papers(20)</span>
+            </a>
+            <a href="javascript:void(0);">
+              <img class="icon" src="/images/icons/icon-history.svg" />
+              <span>Graph history</span>
+            </a>
+            <a href="javascript:void(0);">
+              <img class="icon" src="/images/icons/icon-feedback.svg" />
+              <span>Feedback</span>
+            </a>
+            <a href="javascript:void(0);">
+              <img class="icon" src="/images/icons/icon-logout.svg" />
+              <span>Log out</span>
+            </a>
+          </div>
+        </div>  
+      </div>
     </div>
-  </div>
-  <main style="background: #6a8a9a; height: 200px; padding-top: 70px;">
-    <h1 style="text-align: center;">컨텐츠</h1>
+
+    <h1 style="text-align: center; margin-top: 90px;">컨텐츠 (Fixed-Header)</h1>
   </main>
   
 

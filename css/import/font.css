@@ -169,3 +169,8 @@ h5, .h5 {/*16px*/
 .font-14{font-size: 0.9rem !important;}
 .font-16{font-size: 1rem !important;}
 .font-18{font-size: 1.1rem !important;}
+
+/* text-align */
+.text-c{text-align: center;}
+.text-r{text-align: right;}
+.text-l{text-align: left;}
