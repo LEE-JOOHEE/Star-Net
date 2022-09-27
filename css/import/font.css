@@ -115,6 +115,14 @@ h5, .h5 {/*16px*/
 /* ======================================================== */
 /* Paragraph set */
 /* ======================================================== */
+.text-24{
+  font-size: 1.5rem !important;
+  line-height: 1.5 !important;
+}
+.text-20{
+  font-size: 1.25rem !important;
+  line-height: 1.5 !important;
+}
 .text-18-r{
   font-family: "MinSans-400" !important;
   font-size: 1.125rem !important;
