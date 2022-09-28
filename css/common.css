@@ -91,16 +91,6 @@ hr{border-top: 1px solid #9CA3AF;}
 /* Header */
 /* ========================================= */
 .header{
-  /* width: 100%;
-  height: 60px;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  background: #fff;
-  box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 2; */
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 16px;
@@ -390,7 +380,6 @@ main{
   height: auto;
   margin: 0 auto;
   box-sizing: border-box;
-  /* background: #d0dfe6; */
 }
 @media (max-width: 1440px) {
   .main-cont{
@@ -401,7 +390,6 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid red; */
   width: fit-content;
   margin: 0 auto;
   margin-top: 64px;
@@ -505,9 +493,6 @@ form{width: 100%;}
 /* ========================================= */
 /* main -> slider */
 /* ========================================= */
-.slider-wrap{
-  /* border: 1px solid red; */
-}
 #slider-div{margin: 0 30px;}
 #slider-div .slider-cont{
   border: 1px solid #CCCCCC;
@@ -516,9 +501,6 @@ form{width: 100%;}
 }
 #slider-div .slick-list {margin:0 -8px;}
 .slick-slide {margin:0 8px;}
-#slider-div .image-wrap{
-  /* border: 1px solid gold; */
-}
 #slider-div img{object-fit: contain; width: 100%; aspect-ratio: 16 / 15;}
 #slider-div p{
   overflow: hidden;
@@ -557,11 +539,42 @@ form{width: 100%;}
 }
 
 /* ========================================= */
+/* layout */
+/* ========================================= */
+.layout-2dan-wrap,
+.layout-2dan-space-wrap,
+.layout-3dan-wrap{
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  align-items: center;
+}
+.layout-2dan{
+  grid-column: 6 span / 6 span;
+}
+.layout-2dan-space{
+  grid-column: 5 span / 5 span;
+}
+.layout-3dan{
+  grid-column: 4 span / 4 span;
+}
+@media (max-width: 1024px) {
+  .layout-2dan-wrap, 
+  .layout-2dan-space-wrap,
+  .layout-3dan-wrap{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .layout-2dan, 
+  .layout-2dan-space{margin: 0 70px;}
+  .layout-2dan-wrap .text-wrap,
+  .layout-2dan-space-wrap .text-wrap{
+    margin-right: 70px; margin-top: 24px;
+  }
+}
+
+/* ========================================= */
 /* main -> text-contents */
 /* ========================================= */
-.text-wrap{
-  /* border: 1px solid greenyellow; */
-}
 .text-wrap .text-title{
   font-family: "MinSans-600";
   font-size: 1.5rem;  /* 24px */
