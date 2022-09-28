@@ -517,6 +517,15 @@ form{width: 100%;}
   font-size: 1.25rem;
   color: #111827;
 }
+#slider-div p{
+  display: flex;
+}
+#slider-div p .year{
+  /* float: right; */
+  margin-left: auto;
+  padding: 0 4px;
+  max-width: 30px;
+}
 
 /* ========================================= */
 /* main -> YouTube */
