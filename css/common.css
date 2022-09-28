@@ -517,14 +517,16 @@ form{width: 100%;}
   font-size: 1.25rem;
   color: #111827;
 }
-#slider-div p{
+#slider-div .sub-title{
   display: flex;
 }
-#slider-div p .year{
-  /* float: right; */
+#slider-div .company{
+  width: 75%;
+}
+#slider-div .year{
   margin-left: auto;
-  padding: 0 4px;
-  max-width: 30px;
+  max-width: 45px;
+  color: #9CA3AF;
 }
 
 /* ========================================= */
