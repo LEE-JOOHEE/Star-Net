@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/svg+xml" href="/images/starnet-simbol-bg.svg" sizes="16x16">
+  <title>Chart 화면</title>
+  <link href="/css/common.css" rel="stylesheet">
+</head>
+<body>
+  <!-- header -->
+  <div class="header">
+    <div class="logo"><a href="/index.html"></a></div>
+
+    <div class="head-search-wrap">
+      <form autosearch="off" action="/html_pages/main.html">
+        <div class="search-form">
+          <div class="input-wrap">
+            <input type="text" id="myInput" class="input-search" name="myBook" autocomplete='off'
+              placeholder="책의 제목, 내용, 저자, 요약문장을 입력하세요." />
+            <button type="reset" class="btn-clear"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="nav">
+      <a href="/html_pages/about.html" title="About">About</a> 
+      <a href="/html_pages/we.html" title="We">We</a> 
+      <a href="/html_pages/partner.html" title="Partner">Partner</a>
+
+      <div class="account">
+        <div class="photo">
+          <label>
+            <input id="upload" type="file" onChange="handleImageUpload()" />
+            <img id="display-image" src="/images/user-none.png" />
+          </label>  
+        </div>
+        <div class="user">
+          <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
+            Min-hyeon
+            <span class="arrow"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- popover -->
+      <div class="popover-user" id="popover">
+        <div class="pop-list">
+          <div class="user">
+            <img id="display-image2" src="/images/user-none.png" />
+            <div class="user-info">
+              <span class="name">Min-hyeon Kang</span>
+              <span class="email">Kangminhyeon@gamil.com</span>
+            </div>
+          </div>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-1.svg" />
+            <span>Primium until Sep 01 2023</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-bookmark.svg" />
+            <span>Savd papers(20)</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-history.svg" />
+            <span>Graph history</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-feedback.svg" />
+            <span>Feedback</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-logout.svg" />
+            <span>Log out</span>
+          </a>
+        </div>
+      </div>    <!-- popover end -->
+    </div>    <!-- nav end -->
+  </div>    <!-- header end -->
+  
+  <!-- nav bar 부분 -->
+  <div class="chart-navbar">
+    <div class="keyword">주제어 : 
+      <!-- 주제어 : text와 badge를 show / no-show로 제어 -->
+      <div class="keyword-text no-show">
+        소셜 네트워크 분석
+      </div>
+      <div class="keyword-badges">
+        <button type="button" class="badge">세포</button>
+        <button type="button" class="badge">단백질</button>
+        <button type="button" class="badge">세포분열</button>
+        <button type="button" class="badge">DNA</button>
+        <button type="button" class="badge">세포</button>
+        <button type="button" class="badge">단백질</button>
+        <button type="button" class="badge">세포분열</button>
+        <button type="button" class="badge">DNA</button>
+        <button type="button" class="badge">세포</button>
+        <button type="button" class="badge">단백질</button>
+        <button type="button" class="badge">세포분열</button>
+        <button type="button" class="badge">DNA</button>
+      </div>
+    </div>
+
+    <!-- 탭부분 -->
+    <div class="tabs">
+      <button type="button" class="btn-32-primary active">
+        <img src="/images/icons/icon-book.svg" alt="icon-book" />
+        도서 네트워크
+      </button>
+      <button type="button" class="btn-32-primary">
+        <img src="/images/icons/icon-keyword.svg" alt="icon-keyword" />
+        키워드 네트워크
+      </button>
+      <button type="button" class="btn-32-primary">
+        <img src="/images/icons/icon-cloud.svg" alt="icon-cloud" />
+        워드 클라우드
+      </button>
+    </div>
+
+    <div class="tabs-r">
+      <button type="button" class="btn-32-secondary gap-4" style="font-size: 0.75rem;">
+        <img src="/images/icons/icon-search-placeholder.svg" alt="icon-search" width="14px" />
+        포털에서 찾기
+      </button>
+      <button type="button" class="btn-32-secondary plr-4">
+        <img src="/images/icons/icon-download.svg" alt="icon-download" />
+      </button>
+      <button type="button" class="btn-32-secondary plr-4">
+        <img src="/images/icons/icon-download.svg" alt="icon-download" />
+      </button>
+      <button type="button" class="btn-32-secondary plr-4" onclick="iconToggle();">
+        <img src="/images/icons/icon-zoomin.svg" id="zoom" alt="icon-zoomin" />
+      </button>
+    </div>
+  </div>    <!-- chart-navbar end -->
+
+  <!-- chart 부분 -->
+  <div class="chart-container">
+
+    <!-- 왼쪽 사이드 제어 -->
+    <button id="btn-l" class="btn-l"><img src="/images/icons/icon-arrow-l.svg"></button>
+    <div id="side-l" class="aside left">
+      <!-- ★★★★★ Selected Book 부분은 no-show 로 제어 하도록 구현부탁드립니다. ★★★★★ -->
+      <!-- ★★★★★ 현재 상태는 리스트 <li> 중에 active가 있어서 보여지는 상태, no-show class 추가시 사라짐 ★★★★★ -->
+      <div class="selected-book" id="selected-book">
+        <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+          노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+        </p>
+        <span class="sub-title">
+          <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc
+            Derek L.Hansen , Ben Shneiderman , MarcDerek L.Hansen , Ben Shneiderman , Marc
+          </p>
+          <p class="year">2021</p>
+        </span>
+      </div>    <!-- selected-book end -->
+      <!-- 리스트 시작 -->
+      <ul>
+        <li>
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론</p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc</p>
+            <p class="year">2021</p>
+          </span>
+        </li>
+        <li>
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+            노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+          </p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc</p>
+            <p class="year">2029</p>
+          </span>
+        </li>
+        <li>
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론</p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc
+              Derek L.Hansen , Ben Shneiderman , MarcDerek L.Hansen , Ben Shneiderman , Marc
+            </p>
+            <p class="year">2022</p>
+          </span>
+        </li>
+        <li class="active">
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+            노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+          </p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc
+              Derek L.Hansen , Ben Shneiderman , MarcDerek L.Hansen , Ben Shneiderman , Marc
+            </p>
+            <p class="year">1999</p>
+          </span>
+        </li>
+        <li>
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론</p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc</p>
+            <p class="year">2020</p>
+          </span>
+        </li>
+        <li>
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+            노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+          </p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc</p>
+            <p class="year">1988</p>
+          </span>
+        </li>
+        <li>
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론</p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc
+              Derek L.Hansen , Ben Shneiderman , MarcDerek L.Hansen , Ben Shneiderman , Marc
+            </p>
+            <p class="year">2017</p>
+          </span>
+        </li>
+        <li>
+          <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+            노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+          </p>
+          <span class="sub-title">
+            <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc
+              Derek L.Hansen , Ben Shneiderman , MarcDerek L.Hansen , Ben Shneiderman , Marc
+            </p>
+            <p class="year">2021</p>
+          </span>
+        </li>
+      </ul>   <!-- 리스트 end -->
+    </div>
+    
+    <!-- 오른쪽 사이드 제어 -->
+    <button id="btn-r" class="btn-r"><img src="/images/icons/icon-arrow-r.svg"></button>
+    <div id="side-r" class="aside right">
+
+      <div class="book-info-wrap">
+        <h4 class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론 - Nodexl 분석론
+          <!-- 노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론 - Nodexl 분석론 -->
+        </h4>
+        <p class="sub-text">
+          Derek L.Hansen , Ben Shneiderman , Marc A.Smith 지음 | 권상희 옮김 | 컴원미디어 | 2019년 02월 25일 출간
+        </p>
+        <div class="review">
+          <p>책 리뷰 <b>15</b></p>
+          <div class="star-wrap">
+            <img src="/images/icons/icon-star-fill.svg">
+            <img src="/images/icons/icon-star-fill.svg">
+            <img src="/images/icons/icon-star-fill.svg">
+            <img src="/images/icons/icon-star-empty.svg">
+            <b>4.6</b>
+          </div>
+        </div>
+        <hr class="border-gray-200 mtb-24">
+        <div class="buttons-wrap">
+          <button type="button" class="btn-32-book">
+            <img src="/images/icons/icon-openbook.svg" alt="icon-openbook" />
+            Open book
+          </button>
+          <button type="button" class="btn-32-book">
+            <img src="/images/icons/icon-bookmark.svg" alt="icon-bookmark" />
+            Bookmark
+          </button>
+          <button type="button" class="btn-32-book">
+            <img src="/images/icons/icon-link.svg" alt="icon-link" />
+            원문보기
+          </button>
+          <button type="button" class="btn-32-book">
+            <img src="/images/icons/icon-share.svg" alt="icon-share" />
+            공유하기
+          </button>
+        </div>
+      </div>
+      <div class="book-descript-wrap">
+        <div class="book-depth-wrap">
+          <p>컴퓨터/IT</p> 
+          <img src="/images/icons/icon-arrow-r.svg" alt="arrow-right">
+          <p>전산통계/해석</p>
+          <img src="/images/icons/icon-arrow-r.svg" alt="arrow-right">
+          <p>엑셀통계</p>
+        </div>
+        <div class="book-descript">
+          <p>
+            다중 계층(또는 차원)의 존재는 다중 계층 네트워크 특유의 새로운 계층 네트워크 개념을 도입할 수 있게 한다.<br /><br />
+            [2] 사실, 계층들은 그림에서 보여지듯이 네트워크에 의해 그들의 구조가 설명될 수 있는 방식으로 상호 연결될 수 있다.<br /><br />
+            다중 계층 시스템의 레이어 네트워크 층 네트워크는 일반적으로 가중치가 부여되지만(그리고 지시될 수도 있다) 
+            일반적으로 가중치는 관심의 적용에 따라 결정된다. 간단한 접근방법은 각 레이어 쌍에 대해 α 에지 가중치를 얻기 
+            위해 노드 사이의 연결에 있는 모든 가중치를 합하는 것이다{\displaystyle q_{\alpha \beta }} R 공간에 
+            있는 계층의 기본 네트워크를 나타내는 2등급 인접 텐서는 다음과{\displaystyle \mathbb {R} ^{L\times L}} 같다.<br /><br />
+            다중 계층 시스템의 레이어 네트워크 층 네트워크는 일반적으로 가중치가 부여되지만(그리고 지시될 수도 있다) 
+            일반적으로 가중치는 관심의 적용에 따라 결정된다. 간단한 접근방법은 각 레이어 쌍에 대해 α 에지 가중치를 얻기 
+            위해 노드 사이의 연결에 있는 모든 가중치를 합하는 것이다{\displaystyle q_{\alpha \beta }} R 공간에 있는 
+            계층의 기본 네트워크를 나타내는 2등급 인접 텐서는 다음과{\displaystyle \mathbb {R} ^{L\times L}} 같다.<br /><br />
+            다중 계층(또는 차원)의 존재는 다중 계층 네트워크 특유의 새로운 계층 네트워크 개념을 도입할 수 있게 한다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 차트 부분 -->
+    <div id="content" class="content">
+      <div class="exam-chart">
+        <img src="/images/example-chart.svg" />   <!-- 개발하신 차트 구현한것 들어갈 자리입니다 -->
+      </div>
+
+      <!-- 도움말/위치찾기 버튼 z-index 최상위 -->
+      <div class="help-wrap">
+        <button type="button" id="chart-helper">
+          <img src="/images/icons/icon-help.svg" alt="icon-help">
+        </button>
+        <!-- 도움말 팝업 -->
+        <div class="help-popup no-show">
+          <div class="title">그래프를 읽는 방법
+            <button type="button">
+              <img src="/images/icons/icon-search-x.svg" alt="close">
+            </button>
+          </div>
+          <div class="text">
+            <p class="mb-24">그래프에 표시된 각 노드는 원본 도서와 유사한 도서입니다.</p>
+            <div class="dot-text-wrap mb-16">
+              <div class="text-cont"><span class="dot"></span>
+                도서는 유사도에 따라 화면 촤측에 <b>목록으로 정렬</b>됩니다. (연관 관계의 도서는 아닙니다.)
+              </div>
+              <div class="text-cont mtb-16"><span class="dot"></span>
+                노드의 크기는 원본 도서 노드를 기분으로 <b>유사도가 높은 경우 비슷한 크기</b>로 표시되며 <b>유사도가 낮을 수록 작게</b> 표시 됩니다.
+              </div>
+              <div class="text-cont"><span class="dot"></span>
+                노드의 <b>색상</b>은 <b>도서 분류</b>입니다.
+              </div>
+              <div class="text-cont mtb-16"><span class="dot"></span>
+                유사한 도서는 <b>연결선이 강하고 모여</b>있습니다.
+              </div>
+              <div class="text-cont"><span class="dot"></span>
+                도서 분류별 분포는 그래프 하단에 가로형 막대 차트로 표시됩니다.
+              </div>
+            </div>
+            <a href="#" class="help-link">자세히 보기</a>
+          </div>
+        </div>    <!-- help-popup end -->
+        <!-- 위치찾기 버튼 -->
+        <button>
+          <img src="/images/icons/icon-location.svg" alt="icon-location">
+        </button>
+      </div>
+      
+      <!-- 화면 하단 progress 필터 -->
+      <div class="progress-bar">
+        <div class="percent" style="width: 50%; background: #094166; color: #fff;">컴퓨터/IT</div>
+        <div class="percent" style="width: 20%; background: #005691; color: #fff;">컴퓨터/IT</div>
+        <div class="percent" style="width: 20%; background: #80ABC8; color: #fff;">컴퓨터/IT</div>
+        <div class="percent" style="width: 10%; background: #CCDDE9; color: #000;">컴퓨터/IT</div>
+      </div>
+
+      <!-- 필터 -->
+      <div id="controller" class="controller show">
+        <button type="button" class="controller-title">필터</button>
+        <div class="filters-wrap">
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-filter.svg" alt="icon-filter">
+              제목출력개수
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="50">100</div>
+          </div>
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-filter.svg" alt="icon-filter">
+              유사도
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="30">100</div>
+          </div>
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-filter.svg" alt="icon-filter">
+              출간연도
+            </div>
+            <div class="antd-slider">1999<input type="range" min="1999" max="2022" value="2003">2022</div>
+          </div>
+          <!-- filter-bar / 분류 -->
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-filter.svg" alt="icon-filter">
+              분류
+            </div>
+            <div class="filter-bar">
+              <div class="row">
+                <div class="percent-wrap">
+                  <div class="percent" style="width: 100%; background: #094166; color: #fff;">컴퓨터/IT</div>
+                </div>
+                <img src="/images/icons/icon-eye-show.svg" alt="icon-eye-show">
+              </div>
+              <div class="row">
+                <div class="percent-wrap">
+                  <div class="percent" style="width: 90%; background: #005691; color: #fff;">컴퓨터/IT</div>
+                </div>
+                <img src="/images/icons/icon-eye-show.svg" alt="icon-eye-show">
+              </div>
+              <div class="row">
+                <div class="percent-wrap">
+                  <div class="percent" style="width: 80%; background: #80ABC8; color: #fff;">컴퓨터/IT</div>
+                </div>
+                <img src="/images/icons/icon-eye-show.svg" alt="icon-eye-show">
+              </div>
+              <div class="row">
+                <div class="percent-wrap">
+                  <div class="percent" style="width: 70%; background: #808080; color: #fff;">컴퓨터/IT</div>
+                </div>
+                <img src="/images/icons/icon-eye-none.svg" alt="icon-eye-none">
+              </div>
+              <div class="row">
+                <div class="percent-wrap">
+                  <div class="percent" style="width: 30%; background: #CCDDE9; color: #000;">컴퓨터/IT</div>
+                </div>
+                <img src="/images/icons/icon-eye-none.svg" alt="icon-eye-none">
+              </div>
+            </div>    <!-- filter-bar end -->
+          </div>      <!-- filters end -->
+  
+          <div class="line"></div>    <!-- 구분선 라인 -->
+  
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-text-dot.svg" class="mlr-4" alt="icon-text-dot">
+              제목길이
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="100">100</div>
+          </div>
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-text-dot.svg" class="mlr-4" alt="icon-text-dot">
+              노드크기
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="80">100</div>
+          </div>
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-text-dot.svg" class="mlr-4" alt="icon-text-dot">
+              연결선굵기
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="60">100</div>
+          </div>
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-text-dot.svg" class="mlr-4" alt="icon-text-dot">
+              노드연결강도
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="40">100</div>
+          </div>
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-text-dot.svg" class="mlr-4" alt="icon-text-dot">
+              추가
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="30">100</div>
+          </div>
+          <div class="filters">
+            <div class="filter-title">
+              <img src="/images/icons/icon-text-dot.svg" class="mlr-4" alt="icon-text-dot">
+              추가
+            </div>
+            <div class="antd-slider">0<input type="range" min="1" max="100" value="20">100</div>
+          </div>
+        </div>      <!-- filters-wrap end -->
+      </div>        <!-- controller end -->
+
+      <!-- 필터 - 키워드 스타일 -->
+      <div id="controller-keyword" class="controller-keyword">
+        <div class="filters">
+          <div class="filter-title">
+            키워드
+            <button type="button">
+              <img src="/images/icons/icon-search-x.svg" alt="circle-x">
+            </button>
+          </div>
+          <div class="tags">
+            <button type="button" class="tag">세포</button>
+            <button type="button" class="tag">세포</button>
+            <button type="button" class="tag">세포</button>
+            <button type="button" class="tag">키워드</button>
+            <button type="button" class="tag">키워드</button>
+            <button type="button" class="tag">키워드</button>
+            <button type="button" class="tag">검퓨터/IT</button>
+            <button type="button" class="tag">검퓨터/IT</button>
+            <button type="button" class="tag">검퓨터/IT</button>
+          </div>
+        </div>
+      </div>    <!-- keyword filter end  -->
+    </div>      <!-- controller-keyword  -->
+    
+  </div>  <!-- chart-container end -->
+
+</body>
+<script>
+  // chart-help btn
+  let chart_helper = document.getElementById("chart-helper");
+  let help_popup = document.querySelector(".help-popup");
+  chart_helper.addEventListener("click", function(){
+    help_popup.classList.toggle("no-show");
+  });
+
+  // filter_close
+  let filter = document.querySelector("#controller button");
+  let filter_wrap = document.querySelector("#controller .filters-wrap");
+  filter.addEventListener("click", function() {
+    filter.classList.toggle("filter-close");
+    filter_wrap.classList.toggle("no-show");
+  });
+
+  // 양쪽 슬라이드 open/close 제어
+  let btn_l = document.getElementById("btn-l");
+  let btn_r = document.getElementById("btn-r");
+  let side_l = document.getElementById('side-l');
+  let side_r = document.getElementById('side-r');
+  let temp_l = true;
+  let temp_r = true;
+  let content = document.getElementById('content');
+  btn_l.addEventListener('click', function(){
+    temp_l = !temp_l;
+    if(!temp_l){
+      // console.log("왼쪽 닫아!");
+      side_l.classList.add("fold");
+      btn_l.style.transition = '0.5s ease-in-out';
+      btn_l.style.marginLeft = 'calc(-30% + 12px)';
+      content.style.marginLeft = '0';
+      content.style.width = 'calc((100vw - 30%) - 2px)';
+      if(temp_r === false){
+        content.style.width = 'calc((100vw - 0%) - 2px)';
+      }
+      document.getElementById('controller').style.left = '32px';
+      document.getElementById('controller-keyword').style.left = '32px';
+    }else{
+      // console.log("왼쪽 열어!");
+      side_l.classList.remove("fold");
+      btn_l.style.marginLeft = '0';
+      content.style.marginLeft = '30%';
+      content.style.width = 'calc((100vw - 60%) - 2px)';
+      if(temp_r === false){
+        content.style.width = 'calc((100vw - 30%) - 2px)';
+      }
+      document.getElementById('controller').style.left = '16px';
+      document.getElementById('controller-keyword').style.left = '16px';
+    }
+  });
+  btn_r.addEventListener('click', function(){
+    temp_r = !temp_r;
+    if(!temp_r){
+      // console.log("오른쪽 닫아!");
+      side_r.classList.add("fold");
+      btn_r.style.transition = '0.5s ease-in-out';
+      btn_r.style.marginRight = 'calc(-30% + 12px)';
+      content.style.width = 'calc((100vw - 30%) - 2px)';
+      if(temp_l === false){
+        content.style.width = 'calc((100vw - 0%) - 2px)';
+      }
+    }else{
+      // console.log("오른쪽 열어!");
+      side_r.classList.remove("fold");
+      btn_r.style.marginRight = '0';
+      content.style.width = 'calc((100vw - 60%) - 2px)';
+      if(temp_l === false){
+        content.style.width = 'calc((100vw - 30%) - 2px)';
+      }
+    }
+  });
+
+  //헤더 (user - image / user - popover)
+  function handleImageUpload() {
+    var image = document.getElementById("upload").files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("display-image").src = e.target.result;
+      document.getElementById("display-image2").src = e.target.result;
+    }
+    reader.readAsDataURL(image);
+  }
+  function popoverToggle() {
+    var popover = document.getElementById("popover");
+    popover.classList.toggle("show");
+    var userPop = document.getElementById("user-pop");
+    userPop.classList.toggle("active");
+    console.log(userPop);
+  }
+
+  function iconToggle() {
+    var zoomin = "http://127.0.0.1:5500/images/icons/icon-zoomin.svg";
+    var zoomout = "/images/icons/icon-zoomout.svg";
+    var zoom = document.getElementById("zoom");
+    zoom.src = (zoom.src === zoomin) ? zoomout : zoomin;
+  }
+
+</script>
+</html>
