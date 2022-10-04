@@ -505,3 +505,9 @@
   align-items: center;
   justify-content: center;
 }
+
+/* grid 정렬 - (justify-items) */
+.justify-itmes-center{justify-items: center;}
+.justify-itmes-start{justify-items: start;}
+.justify-itmes-end{justify-items: end;}
+.justify-itmes-stretch{justify-items: stretch;}

@@ -9,78 +9,79 @@
   <link href="/css/common.css" rel="stylesheet">
 </head>
 <body>
-  <main>
-    <!-- header -->
-    <div class="header">
-      <div class="logo"><a href="/html_pages/main.html"></a></div>
+<div>
+  <!-- header -->
+  <div class="header">
+    <div class="logo"><a href="/html_pages/main.html"></a></div>
 
-      <div class="head-search-wrap">
-        <form autosearch="off" action="/html_pages/main.html">
-          <div class="search-form">
-            <div class="input-wrap">
-              <input type="text" id="myInput" class="input-search" name="myBook" autocomplete='off'
-                placeholder="책의 제목, 내용, 저자, 요약문장을 입력하세요." />
-              <button type="reset" class="btn-clear"></button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="nav">
-        <a href="/html_pages/about.html" title="About">About</a> 
-        <a href="/html_pages/we.html" title="We">We</a> 
-        <a href="/html_pages/partner.html" title="Partner">Partner</a>
-
-        <div class="account">
-          <div class="photo">
-            <label>
-              <input id="upload" type="file" onChange="handleImageUpload()" />
-              <img id="display-image" src="/images/user-none.png" />
-            </label>  
-          </div>
-          <div class="user">
-            <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
-              Min-hyeon
-              <span class="arrow"></span>
-            </a>
+    <div class="head-search-wrap">
+      <form autosearch="off" action="/html_pages/main.html">
+        <div class="search-form">
+          <div class="input-wrap">
+            <input type="text" id="myInput" class="input-search" name="myBook" autocomplete='off'
+              placeholder="책의 제목, 내용, 저자, 요약문장을 입력하세요." />
+            <button type="reset" class="btn-clear"></button>
           </div>
         </div>
+      </form>
+    </div>
 
-        <!-- popover -->
-        <div class="popover-user" id="popover">
-          <div class="pop-list">
-            <div class="user">
-              <img id="display-image2" src="/images/user-none.png" />
-              <div class="user-info">
-                <span class="name">Min-hyeon Kang</span>
-                <span class="email">Kangminhyeon@gamil.com</span>
-              </div>
+    <div class="nav">
+      <a href="/html_pages/about.html" title="About">About</a> 
+      <a href="/html_pages/we.html" title="We">We</a> 
+      <a href="/html_pages/partner.html" title="Partner">Partner</a>
+
+      <div class="account">
+        <div class="photo">
+          <label>
+            <input id="upload" type="file" onChange="handleImageUpload()" />
+            <img id="display-image" src="/images/user-none.png" />
+          </label>  
+        </div>
+        <div class="user">
+          <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
+            Min-hyeon
+            <span class="arrow"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- popover -->
+      <div class="popover-user" id="popover">
+        <div class="pop-list">
+          <div class="user">
+            <img id="display-image2" src="/images/user-none.png" />
+            <div class="user-info">
+              <span class="name">Min-hyeon Kang</span>
+              <span class="email">Kangminhyeon@gamil.com</span>
             </div>
-            <a href="javascript:void(0);">
-              <img class="icon" src="/images/icons/icon-1.svg" />
-              <span>Primium until Sep 01 2023</span>
-            </a>
-            <a href="javascript:void(0);">
-              <img class="icon" src="/images/icons/icon-bookmark.svg" />
-              <span>Savd papers(20)</span>
-            </a>
-            <a href="javascript:void(0);">
-              <img class="icon" src="/images/icons/icon-history.svg" />
-              <span>Graph history</span>
-            </a>
-            <a href="javascript:void(0);">
-              <img class="icon" src="/images/icons/icon-feedback.svg" />
-              <span>Feedback</span>
-            </a>
-            <a href="javascript:void(0);">
-              <img class="icon" src="/images/icons/icon-logout.svg" />
-              <span>Log out</span>
-            </a>
           </div>
-        </div>    <!-- popover end -->
-      </div>    <!-- nav end -->
-    </div>    <!-- header end -->
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-1.svg" />
+            <span>Primium until Sep 01 2023</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-bookmark.svg" />
+            <span>Savd papers(20)</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-history.svg" />
+            <span>Graph history</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-feedback.svg" />
+            <span>Feedback</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-logout.svg" />
+            <span>Log out</span>
+          </a>
+        </div>
+      </div>    <!-- popover end -->
+    </div>    <!-- nav end -->
+  </div>    <!-- header end -->
 
+  <main>
     <!-- main-top -->
     <div class="main-top">
       <h1 class="text-c">논문, 특허, 국가 R&D, 연구자 들의 데이터로<br/>
@@ -294,7 +295,7 @@
     <!-- main - footer -->
     <div class="main-end mt-64">
       <div class="footer">
-        <div class="grid-col-1">
+        <div class="grid-col-1 justify-itmes-center">
           <h1 class="mtb-16" style="line-height: 1;">Join mailling list</h1>
           <div class="text-16-r">
             Lime-Net 이메일을 입력해주세요. 해당 이메일로 보내드립니다.
@@ -321,8 +322,19 @@
     </div>    <!-- main-end end -->
 
   </main>
+</div>
 </body>
 <script>
+  //스크롤 헤더 shadow
+  window.addEventListener('scroll',(e)=>{
+    const header = document.querySelector('.header');
+    if(window.pageYOffset>0){
+      header.classList.add("add-shadow");
+    }else{
+      header.classList.remove("add-shadow");
+    }
+  });
+
   //헤더 (user - image / user - popover)
   function handleImageUpload() {
     var image = document.getElementById("upload").files[0];
