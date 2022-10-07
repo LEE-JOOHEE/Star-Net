@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/svg+xml" href="/images/starnet-simbol-bg.svg" sizes="16x16">
+  <title>소셜 로그인 - 설문지</title>
+  <link href="/css/common.css" rel="stylesheet">
+  <style>
+    .btn-social-next,.btn-social-prev{
+      background: #F9FAFB;
+      border-radius: 4px;
+      height: 78px;
+      padding: 24px 0;
+      font-family: "MinSans-500";
+      font-size: 20px;
+      color: #094166;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-social-next:hover,
+    .btn-social-next:active,
+    .btn-social-next:focus{
+      background: #094166;
+      color: #fff;
+    }
+    .btn-social-prev{
+      border: 1px solid #E5E7EB;
+      border-radius: 4px;
+      background: #Fff;
+      color: #9CA3AF;
+    }
+    .btn-social-prev:hover,.btn-social-prev:active,.btn-social-prev:focus{
+      background: #F9FAFB;
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="login-body">
+    <div class="login-wrap">
+      <div class="login">
+        <div class="title">LOGIN</div>
+      
+        <div class="social-logins">
+          <div class="social-login google" onclick="alert('google')">
+            <img src="/images/icon-login/google.svg" alt="구글 로그인" />
+            <p class="google">Google 로그인</p>
+          </div>
+          <div class="social-login naver" onclick="alert('네이버')">
+            <img src="/images/icon-login/naver.svg" alt="네이버 로그인" />
+            <p class="naver" onClick="">네이버 로그인</p>
+          </div>
+          <div class="social-login kakao" onclick="alert('카카오')">
+            <img src="/images/icon-login/kakao.svg" alt="카카오 로그인" />
+            <p class="kakao" onClick="">카카오 로그인</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal-mask" style="display: block"></div>
+  <div class="layer-popup" style="display: block; width: calc(40% - 24px);">
+    <div class="title">설문조사
+      <button type="button">
+        <img src="/images/icons/icon-search-x.svg" alt="close">
+      </button>
+    </div>
+    <!-- 약관 모달 내용 -->
+    <div class="cont-wrap p-16">
+
+      <div class="bg-gray-100">
+        <div class="flex-row items-center p-8 pl-16">
+          <span>01.</span>
+          <p>본 사이트를 알게된 경로를 선택해 주세요.</p>
+        </div>
+        <div class="flex-row justify-center pb-12">
+          <div class="mr-8">
+            <input type="radio" id="radio-4" class="radio" name="radio-group1" checked>
+            <label for="radio-4">검색</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-5" class="radio" name="radio-group1">
+            <label for="radio-5">SNS</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-6" class="radio" name="radio-group1">
+            <label for="radio-6">지인추천</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-7" class="radio" name="radio-group1">
+            <label for="radio-7">블로그</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-8" class="radio" name="radio-group1">
+            <label for="radio-8">기타</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-100">
+        <div class="flex-row items-center p-8 pl-16">
+          <span>02.</span>
+          <p>본 사이트를 알게된 경로를 선택해 주세요.</p>
+        </div>
+        <div class="flex-row justify-center pb-12">
+          <div class="mr-8">
+            <input type="radio" id="radio-4" class="radio" name="radio-group1" checked>
+            <label for="radio-4">검색</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-5" class="radio" name="radio-group1">
+            <label for="radio-5">SNS</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-6" class="radio" name="radio-group1">
+            <label for="radio-6">지인추천</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-7" class="radio" name="radio-group1">
+            <label for="radio-7">블로그</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-8" class="radio" name="radio-group1">
+            <label for="radio-8">기타</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-100">
+        <div class="flex-row items-center p-8 pl-16">
+          <span>03.</span>
+          <p>본 사이트를 알게된 경로를 선택해 주세요.</p>
+        </div>
+        <div class="flex-row justify-center pb-12">
+          <div class="mr-8">
+            <input type="radio" id="radio-4" class="radio" name="radio-group1" checked>
+            <label for="radio-4">검색</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-5" class="radio" name="radio-group1">
+            <label for="radio-5">SNS</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-6" class="radio" name="radio-group1">
+            <label for="radio-6">지인추천</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-7" class="radio" name="radio-group1">
+            <label for="radio-7">블로그</label>
+          </div>
+          <div class="mr-8">
+            <input type="radio" id="radio-8" class="radio" name="radio-group1">
+            <label for="radio-8">기타</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-100">
+        <div class="flex-row items-center p-8 pl-16">
+          <span>04.</span>
+          <p>STAR-NET 보완/ 개선 의견을 작성하여 주시기 바랍니다.</p>
+        </div>
+        <div class="flex-row justify-center pb-16">
+          <textarea rows="2"></textarea>
+        </div>
+      </div>
+
+      <div class="grid-col-6 gap-16">
+        <button type="button" class="btn-social-prev col-span-3">이전</button>
+        <button type="button" class="btn-social-next col-span-3">다음</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+</body>
+</html>

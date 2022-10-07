@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/svg+xml" href="/images/starnet-simbol-bg.svg" sizes="16x16">
+  <title>소셜 로그인 - 약관 동의</title>
+  <link href="/css/common.css" rel="stylesheet">
+  <style>
+    .btn-social-next{
+      background: #F9FAFB;
+      border-radius: 4px;
+      height: 78px;
+      padding: 24px 0;
+      font-family: "MinSans-500";
+      font-size: 20px;
+      color: #094166;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-social-next:hover,
+    .btn-social-next:active,
+    .btn-social-next:focus{
+      background: #094166;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="login-body">
+    <div class="login-wrap">
+      <div class="login">
+        <div class="title">LOGIN</div>
+      
+        <div class="social-logins">
+          <div class="social-login google" onclick="alert('google')">
+            <img src="/images/icon-login/google.svg" alt="구글 로그인" />
+            <p class="google">Google 로그인</p>
+          </div>
+          <div class="social-login naver" onclick="alert('네이버')">
+            <img src="/images/icon-login/naver.svg" alt="네이버 로그인" />
+            <p class="naver" onClick="">네이버 로그인</p>
+          </div>
+          <div class="social-login kakao" onclick="alert('카카오')">
+            <img src="/images/icon-login/kakao.svg" alt="카카오 로그인" />
+            <p class="kakao" onClick="">카카오 로그인</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-mask" style="display: block"></div>
+  <div class="layer-popup" style="display: block">
+    <div class="title">약관동의
+      <button type="button">
+        <img src="/images/icons/icon-search-x.svg" alt="close">
+      </button>
+    </div>
+    <!-- 약관 모달 내용 -->
+    <div class="cont-wrap p-16">
+
+      <div>
+        <input type="checkbox" id="checkbox-7" class="check-circle" name="checkbox-7" />
+        <label for="checkbox-7" class="check-box-label">
+          서비스약관 및 개인정보 수집 및 이용,<br/>수신(선택)에 모두 동의합니다.
+        </label>
+      </div>
+
+      <div class="frame-border flex-row items-center">
+        <input type="checkbox" id="checkbox-7" class="check-circle" name="checkbox-7" />
+        <label for="checkbox-7" class="check-box-label">서비스약관 동의(필수)</label>
+        <a href="#" class="ml-auto">전체보기</a>
+      </div>
+      <div class="frame-border">
+        <p>제 1장 총 칙 </p>
+        <p>제1조(목적)</p>
+        <p>
+          이 약관은 유클리드소프트 주식회사가 운영하는 인터넷사이트(https://starnet.euso.kr) 
+          에서 제공하는 조회 서비스를 이용함에 있어 
+        </p>
+      </div>
+
+      <div class="frame-border flex-row items-center">
+        <input type="checkbox" id="checkbox-7" class="check-circle" name="checkbox-7" />
+        <label for="checkbox-7" class="check-box-label">개인정보정책 (필수)</label>
+        <a href="#" class="ml-auto">전체보기</a>
+      </div>
+      <div class="frame-border">
+        <p>제 1장 총 칙 </p>
+        <p>제1조(목적)</p>
+        <p>
+          이 약관은 유클리드소프트 주식회사가 운영하는 인터넷사이트(https://starnet.euso.kr) 
+          에서 제공하는 조회 서비스를 이용함에 있어 
+        </p>
+      </div>
+
+      <button type="button" class="btn-social-next">다음</button>
+    </div>
+  </div>
+
+
+</body>
+</html>

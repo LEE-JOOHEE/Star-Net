@@ -121,7 +121,7 @@
     </div>
 
     <div class="tabs-r">
-      <button type="button" class="btn-32-secondary gap-4" style="font-size: 0.75rem;">
+      <button type="button" class="btn-32-secondary gap-4" onclick="open_btn();" style="font-size: 0.75rem;">
         <img src="/images/icons/icon-search-placeholder.svg" alt="icon-search" width="14px" />
         포털에서 찾기
       </button>
@@ -152,6 +152,30 @@
           <img src="/images/icons/icon-url.svg" alt="icon-url">URL 복사하기
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- 포털에서 찾기 팝업 (팝업 내용만 적용) -->
+  <div class="modal-mask"></div>
+  <div class="layer-popup">
+    <div class="title">포털에서 찾기
+      <button type="button" onclick="close_btn();">
+        <img src="/images/icons/icon-search-x.svg" alt="close">
+      </button>
+    </div>
+    <div class="cont-wrap">
+      <button type="button" class="go-btn">
+        <img src="/images/icon-login/go-naver.svg" alt="네이버 바로가기" />바로가기
+      </button>
+      <button type="button" class="go-btn">
+        <img src="/images/icon-login/go-daum.svg" alt="다음 바로가기" />바로가기
+      </button>
+      <button type="button" class="go-btn">
+        <img src="/images/icon-login/go-kyobo.svg" alt="교보문고 바로가기" />바로가기
+      </button>
+      <button type="button" class="go-btn">
+        <img src="/images/icon-login/go-interpark.svg" alt="인터파크 바로가기" />바로가기
+      </button>
     </div>
   </div>
 
@@ -297,7 +321,7 @@
         <div class="book-depth-wrap">
           <p>컴퓨터/IT</p> 
           <img src="/images/icons/icon-arrow-r.svg" alt="arrow-right">
-          <p>전산통계/해석</p>
+          <p>전산통계/해석전산통계/해석전산통계/해석</p>
           <img src="/images/icons/icon-arrow-r.svg" alt="arrow-right">
           <p>엑셀통계</p>
         </div>
@@ -496,24 +520,27 @@
       </div>        <!-- controller end -->
 
       <!-- 필터 - 키워드 스타일 -->
-      <div id="controller-keyword" class="controller-keyword no-show">
-        <div class="filters">
-          <div class="filter-title">
-            키워드
-            <button type="button">
-              <img src="/images/icons/icon-closebg.svg" alt="icon-closebg">
-            </button>
-          </div>
-          <div class="tags">
-            <button type="button" class="tag">세포</button>
-            <button type="button" class="tag">세포</button>
-            <button type="button" class="tag">세포</button>
-            <button type="button" class="tag">키워드</button>
-            <button type="button" class="tag">키워드</button>
-            <button type="button" class="tag">키워드</button>
-            <button type="button" class="tag">검퓨터/IT</button>
-            <button type="button" class="tag">검퓨터/IT</button>
-            <button type="button" class="tag">검퓨터/IT</button>
+      <div id="controller-keyword" class="controller-keyword">
+        <button type="button" class="controller-title">키워드</button>
+        <div class="filters-wrap">
+          <div class="filters">
+            <div class="filter-title">
+              선택 키워드
+              <button type="button">
+                <img src="/images/icons/icon-trash.svg" alt="icon-trash">
+              </button>
+            </div>
+            <div class="tags">
+              <button type="button" class="tag">세포</button>
+              <button type="button" class="tag">세포</button>
+              <button type="button" class="tag">세포</button>
+              <button type="button" class="tag">키워드</button>
+              <button type="button" class="tag">키워드</button>
+              <button type="button" class="tag">키워드</button>
+              <button type="button" class="tag">검퓨터/IT</button>
+              <button type="button" class="tag">검퓨터/IT</button>
+              <button type="button" class="tag">검퓨터/IT</button>
+            </div>
           </div>
         </div>
       </div>    <!-- keyword filter end  -->
@@ -543,15 +570,21 @@
   // filter_close
   let filter = document.querySelector("#controller button");
   let filter_wrap = document.querySelector("#controller .filters-wrap");
-  let filter_keyword = document.getElementById("controller-keyword");
+  let filter_keyword = document.querySelector("#controller-keyword");
+  let filter_keyword_btn = document.querySelector("#controller-keyword button");
+  let filter_keyword_wrap = document.querySelector("#controller-keyword .filters-wrap");
   filter.addEventListener("click", function() {
     filter.classList.toggle("filter-close");
     filter_wrap.classList.toggle("no-show");
-    if(filter_wrap.classList.contains('no-show')){
-      filter_keyword.classList.remove("no-show");
-    }else{
-      filter_keyword.classList.add("no-show");
-    }
+    // if(filter_wrap.classList.contains('no-show')){
+    //   filter_keyword.classList.remove("no-show");
+    // }else{
+    //   filter_keyword.classList.add("no-show");
+    // }
+  });
+  filter_keyword_btn.addEventListener("click", function() {
+    filter_keyword_btn.classList.toggle("filter-close");
+    filter_keyword_wrap.classList.toggle("no-show");
   });
 
   // 양쪽 슬라이드 open/close 제어
@@ -575,7 +608,7 @@
         content.style.width = 'calc((100vw - 0%) - 2px)';
       }
       document.getElementById('controller').style.left = '32px';
-      document.getElementById('controller-keyword').style.left = '32px';
+      document.getElementById('controller-keyword').style.left = '270px';
     }else{
       // console.log("왼쪽 열어!");
       side_l.classList.remove("fold");

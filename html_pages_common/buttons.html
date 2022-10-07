@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>버튼 종류 샘플</title>
+  <link href="/css/common.css" rel="stylesheet">
+</head>
+<body>
+  <main class="p-64">
+
+    <h3 class="mtb-16">1. 체크박스(사각형) - 박스만</h1>
+      <input type="checkbox" id="checkbox-8" class="check-box" name="checkbox-8" />
+      <label for="checkbox-8" class="check-box-label"></label>
+  
+    <h3 class="mtb-16">2. 체크박스(원) - 박스만</h1>
+      <input type="checkbox" id="checkbox-7" class="check-circle" name="checkbox-7" />
+      <label for="checkbox-7" class="check-box-label"></label>
+
+    <h3 class="mtb-16">3. 체크박스(사각형) - 라벨포함</h1>
+      <input type="checkbox" id="checkbox-1" class="check-box" name="checkbox-1">
+      <label for="checkbox-1" class="check-box-label">디폴트</label>
+
+      <input type="checkbox" id="checkbox-2" class="check-box" name="checkbox-2" checked>
+      <label for="checkbox-2" class="check-box-label">체크중</label>
+
+      <input type="checkbox" id="checkbox-3" class="check-box" name="checkbox-3" disabled>
+      <label for="checkbox-3" class="check-box-label">사용금지</label>
+
+    <h3 class="mtb-16">4. 체크박스(원) - 라벨포함</h1>
+      <input type="checkbox" id="checkbox-4" class="check-circle" name="checkbox-4">
+      <label for="checkbox-4" class="check-box-label">디폴트</label>
+
+      <input type="checkbox" id="checkbox-5" class="check-circle" name="checkbox-5" checked>
+      <label for="checkbox-5" class="check-box-label">체크중</label>
+
+      <input type="checkbox" id="checkbox-6" class="check-circle" name="checkbox-6" disabled>
+      <label for="checkbox-6" class="check-box-label">사용금지</label>
+
+    <h3 class="mt-16">5. 라디오 - 박스만</h1>
+
+        <input type="radio" id="radio-1" class="radio" name="radio-group" >
+        <label for="radio-1"></label>
+  
+        <input type="radio" id="radio-2" class="radio" name="radio-group" checked>
+        <label for="radio-2"></label>
+  
+        <input type="radio" id="radio-3" class="radio" name="radio-group" disabled>
+        <label for="radio-3"></label>
+
+    <h3 class="mt-32 mb-16">6. 라디오 - 라벨포함</h1>
+
+        <input type="radio" id="radio-4" class="radio" name="radio-group1" >
+        <label for="radio-4">디폴트</label>
+  
+        <input type="radio" id="radio-5" class="radio" name="radio-group1" checked>
+        <label for="radio-5">체크중</label>
+  
+        <input type="radio" id="radio-6" class="radio" name="radio-group1" disabled>
+        <label for="radio-6">사용불가</label>
+
+    <h3 class="mt-32 mb-16">7. 라디오 - 박스타입</h1>
+        <div class="flex-row gap-16">
+          <div class="radio-box-type">
+            <input type="radio" name="group7" value="1" id="radio-box-type-11" />
+            <label for="radio-box-type-11">선택1</label>
+          </div>
+          <div class="radio-box-type">
+            <input type="radio" name="group7" value="2" id="radio-box-type-22" checked />
+            <label for="radio-box-type-22">선택2</label>
+          </div>
+          <div class="radio-box-type">
+            <input type="radio" name="group7" value="3" id="radio-box-type-33" disabled />
+            <label for="radio-box-type-33">선택불가</label>
+          </div>
+       </div>
+
+       <div class="flex-row mt-16">
+        <div class="radio-box-type">
+          <input type="radio" name="group8" value="1" id="radio-box-type-ex1" checked>
+          <label for="radio-box-type-ex1" 
+            style="border-top-right-radius: 0; border-bottom-right-radius: 0;">예시</label>
+        </div>
+        <div class="radio-box-type">
+          <input type="radio" name="group8" value="2" id="radio-box-type-ex2">
+          <label for="radio-box-type-ex2" 
+            style="border-top-left-radius: 0; border-bottom-left-radius: 0;">예시</label>
+        </div>
+      </div>
+
+    <h3 class="mt-32 mb-16">8. 스위치 버튼(토글)</h1>
+      
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    
+
+  </main>
+</body>
+</html>
