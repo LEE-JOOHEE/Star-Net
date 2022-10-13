@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/svg+xml" href="/images/starnet-simbol-bg.svg" sizes="16x16">
+  <title>그래프 히스토리</title>
+  <link href="/css/common.css" rel="stylesheet">
+</head>
+<body>
+<div>
+  <!-- header -->
+  <div class="header">
+    <div class="logo"><a href="/html_pages/main.html"></a></div>
+
+    <div class="head-search-wrap">
+      <form autosearch="off" action="/html_pages/main.html">
+        <div class="search-form">
+          <div class="input-wrap">
+            <input type="text" id="myInput" class="input-search" name="myBook" autocomplete='off'
+              placeholder="책의 제목, 내용, 저자, 요약문장을 입력하세요." />
+            <button type="reset" class="btn-clear"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="nav">
+      <a href="/html_pages/about.html" title="About">About</a> 
+      <a href="/html_pages/we.html" title="We">We</a> 
+      <a href="/html_pages/partner.html" title="Partner">Partner</a>
+
+      <div class="account">
+        <div class="photo">
+          <label>
+            <input id="upload" type="file" onChange="handleImageUpload()" />
+            <img id="display-image" src="/images/user-none.png" />
+          </label>  
+        </div>
+        <div class="user">
+          <a href="javascript:void(0);" id="user-pop" onclick="popoverToggle();">
+            Min-hyeon
+            <span class="arrow"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- popover -->
+      <div class="popover-user" id="popover">
+        <div class="pop-list">
+          <div class="user">
+            <img id="display-image2" src="/images/user-none.png" />
+            <div class="user-info">
+              <span class="name">Min-hyeon Kang</span>
+              <span class="email">Kangminhyeon@gamil.com</span>
+            </div>
+          </div>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-1.svg" />
+            <span>Primium until Sep 01 2023</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-bookmark.svg" />
+            <span>Savd papers(20)</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-history.svg" />
+            <span>Graph history</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-feedback.svg" />
+            <span>Feedback</span>
+          </a>
+          <a href="javascript:void(0);">
+            <img class="icon" src="/images/icons/icon-logout.svg" />
+            <span>Log out</span>
+          </a>
+        </div>
+      </div>    <!-- popover end -->
+    </div>    <!-- nav end -->
+  </div>    <!-- header end -->
+  
+  <main>
+    <!-- main contents start -->
+    <div class="main-cont">
+      <h3 class="mt-16 mb-32">Graph history</h3>
+      <div class="table-wrap mb-32" style="height: calc(100vh - 338px);">
+        <table>
+          <colgroup>
+            <col width="5%" />
+            <col width="45%" />
+            <col width="25%" />
+            <col width="10%" />
+            <col width="15%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Title</th>
+              <th>Authors</th>
+              <th>Year</th>
+              <th>Data visited</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-for2">
+            <tr>
+              <td class="text-center" title="1">1</td>
+              <td title="노드엑셀을 이용한 소결 미디어 네트워크 분석 - Nodexl 분석론">
+                노드엑셀을 이용한 소결 미디어 네트워크 분석 - Nodexl 분석론
+              </td>
+              <td class="text-gray-600 text-16-r" title="Jiawei Han, M. Kamber">Jiawei Han, M. Kamber</td>
+              <td class="text-gray-600 text-16-r" title="2022">2022</td>
+              <td class="text-gray-600 text-16-r" title="2022 09 30">2022 09 30</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-col-12">
+        <div class="col-span-4"></div>
+        <div class="col-span-4">
+          <button type="button" class="plus-btn" disabled>
+            <img src="/images/icons/plus.svg" />더보기
+          </button>
+        </div>
+        <div class="col-span-4"></div>
+      </div>
+
+    </div>    <!-- main contents end -->
+
+    <!-- main - footer -->
+    <div class="main-end mt-16">
+      <div class='footer-info grid-col-1 text-c'>
+        <p>대표 | 채은경ㆍ박주한    사업자번호 | 314-86-59383    고객센터 | 042-488-6589</p>
+        <p>주소 | 대전광역시 서구 대덕대로 317번길 20, 458호(월평동, 선사엔조이빌딩)</p>
+        <p class='sub-text'>본 사이트에 게시된 검색 결과 정보가 무단으로 수집 되는 것을 거부합니다. ©EUCLIDSOFT INC.</p>
+      </div>
+    </div>    <!-- main-end end -->
+
+  </main>
+</div>
+</body>
+<script>
+  //스크롤 헤더 shadow
+  window.addEventListener('scroll',(e)=>{
+    const header = document.querySelector('.header');
+    if(window.pageYOffset>0){
+      header.classList.add("add-shadow");
+    }else{
+      header.classList.remove("add-shadow");
+    }
+  });
+
+  //헤더 (user - image / user - popover)
+  function handleImageUpload() {
+    var image = document.getElementById("upload").files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("display-image").src = e.target.result;
+      document.getElementById("display-image2").src = e.target.result;
+    }
+    reader.readAsDataURL(image);
+  }
+  function popoverToggle() {
+    var popover = document.getElementById("popover");
+    popover.classList.toggle("show");
+    var userPop = document.getElementById("user-pop");
+    userPop.classList.toggle("active");
+    console.log(userPop);
+  }
+
+  var tbody2 = document.getElementById('tbody-for2');
+  for(var i=0; i < 30; i++){
+    var row = '<tr><td class="text-center" title="' + (i+2) + '">' + (i+2) + '</td>' + 
+      '<td title="노드엑셀을 이용한 소결 미디어 네트워크 분석 - Nodexl 분석론">' + 
+      '노드엑셀을 이용한 소결 미디어 네트워크 분석 - Nodexl 분석론</td>' + 
+      '<td class="text-gray-600 text-16-r" title="Jiawei Han, M. Kamber">' + 
+      'Jiawei Han, M. Kamber</td>' + 
+      '<td class="text-gray-600 text-16-r" title="2022">2022</td>' + 
+      '<td class="text-gray-600 text-16-r" title="2022 09 30">2022 09 30</td></tr>'
+    tbody2.innerHTML += row;
+  }
+</script>
+</html>

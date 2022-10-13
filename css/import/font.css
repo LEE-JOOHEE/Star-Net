@@ -103,8 +103,8 @@ h3, .h3 {/*20px*/
 }
 h4, .h4 {/*18px*/
   font-family: "MinSans-500" !important;
-  font-size: 1.125rem;
-  line-height: 150%;
+  font-size: 1.125rem !important;
+  line-height: 150% !important;
 }
 h5, .h5 {/*16px*/
   font-family: "MinSans-500" !important;

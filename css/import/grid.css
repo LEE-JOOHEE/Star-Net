@@ -511,3 +511,7 @@
 .justify-itmes-start{justify-items: start;}
 .justify-itmes-end{justify-items: end;}
 .justify-itmes-stretch{justify-items: stretch;}
+
+.grid-items-start{align-items: start !important;}
+.grid-items-end{align-items: end !important;}
+.grid-items-stretch{align-items: stretch !important;}
