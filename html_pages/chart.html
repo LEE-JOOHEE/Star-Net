@@ -207,9 +207,15 @@
             <p class="year">2021</p>
           </span>
         </li>
-        <li>
+        <li class="active">
           <p class="title">노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
             노드엑셀을 이용한 소결 미디어 네트워크 분석 빅데이터와 소셜 미디어 네트워크 이론
+          </p>
+          <p class="detail">
+            다중 계층(또는 차원)의 존재는 다중 계층 네트워크 특유의 
+            새로운 계층 네트워크 개념을 도입할 수 있게 한다.
+            [2] 사실, 계층들은 그림에서 보여지듯이 네트워크에 의해 그들의 구조가 
+            설명될 수 있는 방식으로 상호 연결될 수 있다.
           </p>
           <span class="sub-title">
             <p class="sub-text">Derek L.Hansen , Ben Shneiderman , Marc</p>
@@ -307,7 +313,7 @@
             <img src="/images/icons/icon-bookmark.svg" alt="icon-bookmark" />
             Bookmark
           </button>
-          <button type="button" class="btn-32-book">
+          <button type="button" class="btn-32-book" disabled >
             <img src="/images/icons/icon-link.svg" alt="icon-link" />
             원문보기
           </button>
@@ -601,9 +607,9 @@
       // console.log("왼쪽 닫아!");
       side_l.classList.add("fold");
       btn_l.style.transition = '0.5s ease-in-out';
-      btn_l.style.marginLeft = 'calc(-30% + 12px)';
+      btn_l.style.marginLeft = 'calc(-25% + 12px)';
       content.style.marginLeft = '0';
-      content.style.width = 'calc((100vw - 30%) - 2px)';
+      content.style.width = 'calc((100vw - 25%) - 2px)';
       if(temp_r === false){
         content.style.width = 'calc((100vw - 0%) - 2px)';
       }
@@ -613,10 +619,10 @@
       // console.log("왼쪽 열어!");
       side_l.classList.remove("fold");
       btn_l.style.marginLeft = '0';
-      content.style.marginLeft = '30%';
-      content.style.width = 'calc((100vw - 60%) - 2px)';
+      content.style.marginLeft = '25%';
+      content.style.width = 'calc((100vw - 50%) - 2px)';
       if(temp_r === false){
-        content.style.width = 'calc((100vw - 30%) - 2px)';
+        content.style.width = 'calc((100vw - 25%) - 2px)';
       }
       document.getElementById('controller').style.left = '16px';
       document.getElementById('controller-keyword').style.left = '16px';
@@ -628,8 +634,8 @@
       // console.log("오른쪽 닫아!");
       side_r.classList.add("fold");
       btn_r.style.transition = '0.5s ease-in-out';
-      btn_r.style.marginRight = 'calc(-30% + 12px)';
-      content.style.width = 'calc((100vw - 30%) - 2px)';
+      btn_r.style.marginRight = 'calc(-25% + 12px)';
+      content.style.width = 'calc((100vw - 25%) - 2px)';
       if(temp_l === false){
         content.style.width = 'calc((100vw - 0%) - 2px)';
       }
@@ -637,9 +643,9 @@
       // console.log("오른쪽 열어!");
       side_r.classList.remove("fold");
       btn_r.style.marginRight = '0';
-      content.style.width = 'calc((100vw - 60%) - 2px)';
+      content.style.width = 'calc((100vw - 50%) - 2px)';
       if(temp_l === false){
-        content.style.width = 'calc((100vw - 30%) - 2px)';
+        content.style.width = 'calc((100vw - 25%) - 2px)';
       }
     }
   });
