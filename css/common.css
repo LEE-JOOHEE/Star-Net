@@ -2164,6 +2164,57 @@ table tbody tr:hover{background: #F9FAFB;}
   background: #005691; border: 1px solid #005691; color: #fff;
   transition: background-color .1s ease-out 200ms;}
   
+/* ========================================= */
+/* loading-page(로딩페이지) */
+/* ========================================= */
+.loading-wrap{
+  position: absolute;
+  top: 65px; left: 50%;
+  transform: translate(-50%,-0);
+  padding: 24px;
+}
+.loading-wrap h2{
+  text-align: center;
+  color: #636871;
+  margin-bottom: 24px;
+}
 
-
-
+.loading-page-body{
+  position: relative;
+  margin: 0 auto;
+  background: #F9FAFB;
+  width: 300px;
+  border: 2px solid #005691;
+  border-radius: 16px;
+}
+.progress{
+  position: relative;
+  height: 30px;
+  border: 5px solid #fff;
+  border-radius: 36px;
+}
+.progress .color{
+  position: absolute;
+  background: #005691;
+  width: 0px;
+  height: 20px;
+  border-radius: 20px;
+  animation: progres 4s infinite linear;    
+}
+@keyframes progres{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 50%;
+    }
+    50%{
+        width: 75%;
+    }
+    75%{
+        width: 85%;
+    }
+    100%{
+        width: 100%;
+    }
+};
