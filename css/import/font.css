@@ -153,6 +153,14 @@ h5, .h5 {/*16px*/
   font-size: 0.875rem !important;
   line-height: 1.5 !important;
 }
+.text-12-r{
+  font-family: "MinSans-400" !important;
+  font-size: 0.75rem !important;
+}
+.text-12-m{
+  font-family: "MinSans-500" !important;
+  font-size: 0.75rem !important;
+}
 
 /* ======================================================== */
 /* underline */

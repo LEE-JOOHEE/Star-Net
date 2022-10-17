@@ -2167,14 +2167,14 @@ table tbody tr:hover{background: #F9FAFB;}
 /* ========================================= */
 /* loading-page(로딩페이지) */
 /* ========================================= */
-.exam-chart{height: calc(100vh - 120px);}
+/* .exam-chart{height: calc(100vh - 120px);} */
 .loading-wrap{
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   padding: 24px;
   display: flex; flex-direction: column; 
-  gap: 16px; align-items: center;
+  align-items: center;
 }
 
 .loading-page-body{
@@ -2184,6 +2184,8 @@ table tbody tr:hover{background: #F9FAFB;}
   width: 300px;
   border: 2px solid #005691;
   border-radius: 16px;
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
 .progress{
   position: relative;
@@ -2194,7 +2196,6 @@ table tbody tr:hover{background: #F9FAFB;}
 .progress .color{
   position: absolute;
   background: #005691;
-  opacity: 0.8;
   width: 0px;
   height: 20px;
   border-radius: 20px;
@@ -2259,9 +2260,8 @@ table tbody tr:hover{background: #F9FAFB;}
 }
 
 .loading-img{
-  /* border: 1px solid red; */
   margin-top: 24px;
-  min-width: 400px;
+  min-width: 450px;
   max-width: 500px;
 }
 .loading-img > img{
