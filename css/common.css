@@ -2167,16 +2167,14 @@ table tbody tr:hover{background: #F9FAFB;}
 /* ========================================= */
 /* loading-page(로딩페이지) */
 /* ========================================= */
+.exam-chart{height: calc(100vh - 120px);}
 .loading-wrap{
   position: absolute;
-  top: 65px; left: 50%;
-  transform: translate(-50%,-0);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   padding: 24px;
-}
-.loading-wrap h2{
-  text-align: center;
-  color: #636871;
-  margin-bottom: 24px;
+  display: flex; flex-direction: column; 
+  gap: 16px; align-items: center;
 }
 
 .loading-page-body{
@@ -2196,6 +2194,7 @@ table tbody tr:hover{background: #F9FAFB;}
 .progress .color{
   position: absolute;
   background: #005691;
+  opacity: 0.8;
   width: 0px;
   height: 20px;
   border-radius: 20px;
@@ -2218,3 +2217,54 @@ table tbody tr:hover{background: #F9FAFB;}
         width: 100%;
     }
 };
+
+.loading-text{
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto; text-align: center; 
+  width: 100%; height: 100px; 
+  padding: 16px;
+}
+
+.letter {
+  float: left;
+  font-family: "MinSans-400"; font-size: 1rem;
+  color: #636871;
+  padding: 0 2px;
+
+  animation-name: loadingText;
+  animation-duration: 1.6s;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+}
+
+.l-1 {animation-delay: 0.48s;}
+.l-2 {animation-delay: 0.6s;}
+.l-3 {animation-delay: 0.72s;}
+.l-4 {animation-delay: 0.84s;}
+.l-5 {animation-delay: 0.96s;}
+.l-6 {animation-delay: 1.08s;}
+.l-7 {animation-delay: 1.2s;}
+.l-8 {animation-delay: 1.32s;}
+.l-9 {animation-delay: 1.44s;}
+.l-10 {animation-delay: 1.56s;}
+
+@keyframes loadingText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading-img{
+  /* border: 1px solid red; */
+  margin-top: 24px;
+  min-width: 400px;
+  max-width: 500px;
+}
+.loading-img > img{
+  height: 100% !important;
+  object-fit: contain;
+}
